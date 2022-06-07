@@ -6,20 +6,140 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700&display=swap');
         *{
             margin: 0%;
             padding: 0%;
         }
-        img{
-            background-image: url(img/teste_de_tamanho.jpg);
+
+        html{
+            background-color: rgb(25, 39, 39);
+        }
+        body{
+            background-color: #228662;
+            width: 720px;
+            font-family: 'Nunito Sans', sans-serif;
+
+        }
+        header{
+                        
+            overflow: hidden;
+            overflow-x: scroll;
+
+        }
+
+        ::-webkit-scrollbar {
+            width: 0px;
+            height: 0px;
+            background: #37ec0062;
+        }
+
+
+        #home_topo_111px{
+            background-image: url(img/home_topo_111px.png);
             background-size: cover;
             width: 720px;;
-            height: 1463px;
+            height: 111px;
             
+        }
+        #layout_horizontal{
+            display: flex;
+            justify-content: space-between;
+            margin: 30px;
+
+        }
+        #layout_horizontal> span{
+            flex-direction: column;
+            justify-content: center;
+            color: aliceblue;
+            font-size: 22px;
+            font-weight: 400;
+        
+        }
+        span{
+            display: flex;
+            align-items: center;
+        }
+        p{
+            margin-bottom: 5px;
+
+        }
+        #olho{
+            background-image: url(img/home_olho_42x45px.png);
+            width: 45px;;
+            height: 42px;
+
+        }
+        #extrato_260x60px{
+            background-color: #1f7858;
+            background-size: cover;
+            width: 260px;
+            height: 60px;
+            border-radius: 22px;
+            color: aliceblue;
+            border: 0px;
+            font-size: 22px;
+            font-weight: 600;
+            
+
+        }
+        #extrato_260x60px:hover{
+            background-color: #2a5d4a;
+
+        }
+
+        #bnts{
+            margin: 30px 0px 30px 30px;
+            height: 155px;
+            width: 820px;
+        }
+
+        #bnts>button{
+            background-color: #1f7858;
+            background-image: url(img/home_bnt1_142x155px.png);
+            width: 142px;
+            height: 155px;
+            margin-right: 10px;
+            border: 0px;
+            border-radius: 25px;
+        }
+
+
+        #menu{
+            background-color: aliceblue;
+            width: 720px;;
+            height: 1463px;
+            border-radius: 30px 30px 0px 0px;
+
         }
     </style>
 </head>
 <body>
-    <img src="img/teste_de_tamanho.jpg" alt="">
+    <header>
+        <div id="home_topo_111px"></div>
+        <section id="layout_horizontal">
+            <span>
+                <p>Saldo PicPay</p>
+                <span>
+                    <p style="font-size: 24px; font-weight: 700;">R$ 9,01</p>
+                    <div id="olho"></div>
+                </span>
+            </span>
+            <button id="extrato_260x60px"> Extrato</button>
+        </section>
+        <div id="bnts">
+            <button></button>
+            <button></button>
+            <button></button>
+            <button></button>
+            <button></button>
+        </div>
+
+    </header>
+
+    <section id="menu">
+
+    </section>
+
 </body>
 </html>
