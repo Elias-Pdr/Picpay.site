@@ -31,8 +31,7 @@
             display: inline;
             width: 15vw;
             height: 15.41vw;
-            background-color: rgba(127, 255, 212, 0.034);
-            color: red;
+            background-color: rgba(127, 255, 212, 0);
             border: 0px;
         }
 
@@ -134,11 +133,23 @@
             border-radius: 15px 15px 0px 0px;
 
         }
+
+        #menu_footer{
+            background-image: url(img/home_bar_117px.png);
+            background-size: contain;
+            height: 16.25vw;
+            width: var(--largura);
+            position: fixed;
+            bottom: 0;
+        }
     </style>
 </head>
 <body>
+
+    <div id="menu_footer"></div>
+
     <header>
-        <a href="admiro.html"><button id="admin">Admiro</button></a>
+        <a href="admiro.html"><button id="admin"></button></a>
         <div id="home_topo_111px"></div>
         <section id="layout_horizontal">
             <span>
@@ -166,6 +177,7 @@
 
     </section>
     
+
     <script>
             const txt_saldo = document.getElementById('dinheiro')
 

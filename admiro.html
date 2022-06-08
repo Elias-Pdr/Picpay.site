@@ -18,69 +18,108 @@
 
 
        body{
-           background-color: #bdbdbd;
+        background-color: #32425b;
            width: var(--largura);
            font-family: 'Nunito Sans', sans-serif;
            font-size: 0.7em;
 
        }
-        header{
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 40px;
-            background-color: aliceblue;
-        }
-        header h1{
-            margin: 0px 20px;
 
-        }
-        h1>a{
-            text-decoration: none;
-            color: #228662;
-        }
+       header{
+            text-align: center;
+            background-color: #32425b;
+            padding: 20px;
+       }
+       header h1{
+           margin: 5px;
+           color: aliceblue;
+           font-weight: 600;
+           font-size: 30px;
+           letter-spacing: 2px;
+       }
+       header p{
+           font-weight: bold;
+            font-size: 15px;
+            color: #25bd85;
+       }
+
         main section{
+            margin: auto;
+
             display: flex;
             flex-direction: column;
-            align-items: center;
             padding: 10px 0px;
+            width: 75%;
         }
-        input{
-            margin: 10px 0px 0px 0px;
-            padding: 13px;
-            width: 90%;
-            border-radius: 100px;
-            border: 1px solid rgb(80, 80, 80);
+        section p{
+            text-align: left;
+            margin-bottom: 5px;
+            font-variant: small-caps;
+            font-weight: bold;
+            font-size: 1.4em;
+            color: aliceblue;
 
         }
+        input{
+            
+            background-color: #32425b;
+            margin-bottom: 13px;
+            padding: 13px;
+            border: 1px solid rgba(255, 255, 255, 0.527);
+
+        }
+        #checkbox_txt{
+            font-variant: normal;
+            font-weight: normal;
+            font-size: small;
+            margin: 0px 10px;
+        }
+        #checkbox{
+            margin: 0%;
+        }
+
         #button{
-            background-color: aliceblue;
+            background-color: #5353533b;
+            color: #f0f8ff63;
             font-size: large;
             font-weight: 500;
             font-variant: small-caps;
+            margin-top: 10px;
+            border: 2px solid #f0f8ff63;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1 style="color:#228662; font-size: 3em;"><a href="index.html">&lt;</a></h1>
-        <h1 id="titulo">Admin</h1>
-        <h1 style="color:#228662; font-size: 2.5em;">|||</h1>
+        <h1 id="titulo">REGISTER</h1>
+        <p>PREENCHA TUDO CORRETAMENTE</p>
+        
     </header>
     
     <main>
         <section>
-            <input type="text" name="dinheiro" id="dinheiro" placeholder="Saldo">
-            <input type="text" name="nome" id="nome" placeholder="nome">
-            <input type="text" name="banco" id="banco" placeholder="banco">
-            <input type="number" name="celular" id="celular" placeholder="celular">
-            <input type="number" name="cpf" id="cpf" placeholder="cpf">
+            <p>saldo</p>
+            <input type="text" name="dinheiro" id="dinheiro" placeholder="Digite o valor do saldo">
+            <p>nome</p>
+            <input type="text" name="nome" id="nome" placeholder="Digite o nome da vítima">
+            <p>banco</p>
+            <input type="text" name="banco" id="banco" placeholder="Digite o banco da vítima">
+            <p>celular</p>
+            <input type="number" name="celular" id="celular" placeholder="Digite o numero da vítima">
+            <p>cpf</p>
+            <input type="number" name="cpf" id="cpf" placeholder="Digite o CPF da vítima">
+            <span style="display: flex; align-items: center;">
+                <input type="checkbox" name="checkbox" id="checkbox" onclick="checkbox_click()">
+                <p id="checkbox_txt">Todos os dados acima estão corretos</p>
+            </span>
             <input type="button" id="button" value="confirmar" onclick="confirmar()">
         </section>
 
     </main>
 
     <script>
+        let contador = 0
+
         function confirmar(){
 
             const txt_dinheiro = document.getElementById('dinheiro')
@@ -107,6 +146,29 @@
             sessionStorage.setItem("cpf", value_cpf)
 
         }
+    
+        function checkbox_click(){
+            const bnt = document.getElementById('button')
+
+            const color_hover = '#058f5c'
+            const color = '#5353533b'
+            
+            if(contador == 0){
+                bnt.style.backgroundColor = color_hover
+                bnt.style.borderColor = color_hover
+                bnt.style.color = 'aliceblue'
+
+                contador++
+            }else{
+                bnt.style.backgroundColor = color
+                bnt.style.borderColor = '#f0f8ff63'
+                bnt.style.color = '#f0f8ff63'
+                contador = 0
+            }
+
+
+        }
+
     </script>
 
 </body>
