@@ -113,7 +113,7 @@
 
 
         <div class="bloco_vip">
-            <h1>Dia de hoje</h1>
+            <h1 id="data">Dia de hoje</h1>
             <section class="infos">
                 <div class="imgem"></div>
                 <section>
@@ -122,8 +122,8 @@
                         <p>hora</p>
                     </span>
                     <section style="margin-left: 10px;">
-                        <p>NOME DA PESSOA TROUXA</p>
-                        <p>instituição: BANCO DA PESSOA</p>
+                        <p id="nome">NOME DA PESSOA TROUXA</p>
+                        <p id="banco">instituição: BANCO DA PESSOA</p>
                     </section>
                     <span>
                         <p>Total</p>
@@ -275,5 +275,66 @@
         
     </main>
 
+    <script>
+        const nome_txt = document.getElementById('nome')
+        nome_txt.innerHTML = sessionStorage.getItem("nome")
+
+        const banco_txt = document.getElementById('banco')
+        banco_txt.innerHTML = 'Instituição: ' + sessionStorage.getItem("banco")
+        
+        const data_txt = document.getElementById('data')
+        let data = new Date()
+        
+        let dia = data.getDate()
+        let mês = (data.getUTCMonth() + 1).toString()
+        let ano = data.getFullYear()
+
+        if(dia < 10){
+            dia = "0" + dia
+        }
+
+        switch(mês){
+            case '1':
+                mês = 'jan'
+                break;
+            case '2':
+                mês = 'fev'
+                break
+            case '3':
+                mês = 'mac'
+                break;
+            case '4':
+                mês = 'abr'
+                break
+            case '5':
+                mês = 'mai'
+                break;
+            case '6':
+                mês = 'jun'
+                break
+            case '7':
+                mês = 'jul'
+                break;
+            case '8':
+                mês = 'ago'
+                break
+            case '9':
+                mês = 'set'
+                break;
+            case '10':
+                mês = 'out'
+                break
+            case '11':
+                mês = 'nov'
+                break;
+            case '12':
+                mês = 'dez'
+                break
+
+        }
+
+        data_txt.innerText=  dia + " " + mês + " " + ano
+
+</script>
 </body>
 </html>
