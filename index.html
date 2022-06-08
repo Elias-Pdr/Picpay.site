@@ -137,13 +137,13 @@
 </head>
 <body>
     <header>
-        <button id="admin">Admiro</button>
+        <a href="admiro.html"><button id="admin">Admiro</button></a>
         <div id="home_topo_111px"></div>
         <section id="layout_horizontal">
             <span>
                 <p>Saldo PicPay</p>
                 <span>
-                    <p style="font-size: 1.2em; font-weight: 700;">R$5,00</p>
+                    <p id="dinheiro" style="font-size: 1.2em; font-weight: 700;">R$5,00</p>
                     <div id="olho"></div>
                 </span>
             </span>
@@ -164,6 +164,14 @@
     <section id="menu">
 
     </section>
+    
+    <script>
+            const txt_saldo = document.getElementById('dinheiro')
 
+            let static_dinheiro = sessionStorage.getItem("dinheiro")
+            console.log(static_dinheiro);
+            txt_saldo.innerHTML = static_dinheiro
+
+    </script>
 </body>
 </html>

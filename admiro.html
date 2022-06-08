@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700&display=swap');
+       
+       :root{
+           --largura: 100%;
+       }
+       *{
+           margin: 0%;
+           padding: 0%;
+       }
+
+
+       body{
+           background-color: #bdbdbd;
+           width: var(--largura);
+           font-family: 'Nunito Sans', sans-serif;
+           font-size: 0.7em;
+
+       }
+        header{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 40px;
+            background-color: aliceblue;
+        }
+        header h1{
+            margin: 0px 20px;
+
+        }
+        h1>a{
+            text-decoration: none;
+            color: #228662;
+        }
+        main section{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px 0px;
+        }
+        input{
+            margin: 10px 0px 0px 0px;
+            padding: 13px;
+            width: 90%;
+            border-radius: 100px;
+            border: 1px solid rgb(80, 80, 80);
+
+        }
+        #button{
+            background-color: aliceblue;
+            font-size: large;
+            font-weight: 500;
+            font-variant: small-caps;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 style="color:#228662; font-size: 3em;"><a href="index.html">&lt;</a></h1>
+        <h1 id="titulo">Admin</h1>
+        <h1 style="color:#228662; font-size: 2.5em;">|||</h1>
+    </header>
+    
+    <main>
+        <section>
+            <input type="text" name="dinheiro" id="dinheiro" placeholder="Saldo">
+            <input type="text" name="nome" id="nome" placeholder="nome">
+            <input type="text" name="banco" id="banco" placeholder="banco">
+            <input type="number" name="celular" id="celular" placeholder="celular">
+            <input type="number" name="cpf" id="cpf" placeholder="cpf">
+            <input type="button" id="button" value="confirmar" onclick="confirmar()">
+        </section>
+
+    </main>
+
+    <script>
+        function confirmar(){
+
+            const txt_dinheiro = document.getElementById('dinheiro')
+            let value_dinheiro = txt_dinheiro.value
+
+            const txt_nome = document.getElementById('nome')
+            let value_nome = txt_nome.value
+
+            const txt_banco = document.getElementById('banco')
+            let value_banco = txt_banco.value
+
+            const txt_celular = document.getElementById('celular')
+            let value_celular = txt_celular.value
+
+            const txt_cpf = document.getElementById('cpf')
+            let value_cpf = txt_cpf.value
+
+
+
+            sessionStorage.setItem("dinheiro", value_dinheiro)
+            sessionStorage.setItem("nome", value_nome)
+            sessionStorage.setItem("banco", value_banco)
+            sessionStorage.setItem("celular", value_celular)
+            sessionStorage.setItem("cpf", value_cpf)
+
+        }
+    </script>
+
+</body>
+</html>
