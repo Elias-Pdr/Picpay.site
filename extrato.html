@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700&display=swap');
+
+        *{
+            margin: 0%;
+            padding: 0%;
+            font-family: 'Nunito Sans', sans-serif;
+        }
+        .home_topo_111px{
+            background-image: url(img/extrato_topo_88px.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+            width:  var(--largura);
+            height: 12.22vw;
+            box-shadow: 1px 0px 16px 4px rgba(0, 0, 0, 0.274);
+        }
+
+        .bloco{
+            margin-top: 15px;
+            font-size: 15px;
+        }
+
+        .bloco h1{
+            text-align: center;
+            font-size: 1em;
+            font-weight: bold;
+
+        }
+
+        .bloco_vip{
+            margin-top: 15px;
+            font-size: 15px;
+        }
+
+        .bloco_vip h1{
+            text-align: center;
+            font-size: 1em;
+            font-weight: bold;
+
+        }
+        .currency{
+            color: forestgreen;
+        }
+
+        .infos{
+            display: flex;
+            margin-left: 10px;
+            margin-right: 10px;
+        }
+
+        .infos section{
+            display: flex;
+            width: 100%;
+            flex-direction: column;
+            justify-content: center;            
+        }
+
+        .infos span{
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 20px 10px 10px;
+            
+        }
+        .infos .imgem{
+            background-image: url(img/extrato_stonks_55x193px.png);
+            background-size: cover;
+            width: 7.63vw;
+            height: 26.80vw;
+        }
+
+        .bloco_vip .imgem{
+            background-image: url(img/extrato_pix_55x193px.png);
+            background-size: cover;
+            width: 7.63vw;
+            height: 26.80vw;
+        }
+        .saldo_do_dia{
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 30px 10px 10px;
+        }
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="home_topo_111px"></div>
+    </header>
+    <main>
+
+
+        <div class="bloco_vip">
+            <h1>Dia de hoje</h1>
+            <section class="infos">
+                <div class="imgem"></div>
+                <section>
+                    <span>
+                        <p><strong>PIX enviado</strong></p>
+                        <p>hora</p>
+                    </span>
+                    <section style="margin-left: 10px;">
+                        <p>NOME DA PESSOA TROUXA</p>
+                        <p>instituição: BANCO DA PESSOA</p>
+                    </section>
+                    <span>
+                        <p>Total</p>
+                        <p class="currency">+R$ 0,01</p>
+                    </span>
+                </section>
+            </section>
+        </div>
+
+
+
+
+        <div class="bloco">
+            <h1>08 jun 2022</h1>
+            <section class="infos">
+                <div class="imgem"></div>
+                <section>
+                    <span>
+                        <p><strong>Rendimentos</strong></p>
+                        <p>10:47</p>
+                    </span>
+                    <span>
+                        <p>Total</p>
+                        <p class="currency">+R$ 0,01</p>
+                    </span>
+                </section>
+            </section>
+        </div>
+
+        <div class="bloco">
+            <h1>08 mai 2022</h1>
+            <span>
+                <span class="saldo_do_dia">
+                    <p><strong>Saldo do dia</strong></p>
+                    <p>R$ 745,09</p>
+                </span>
+                <section class="infos">
+                    <div class="imgem"></div>
+                    <section>
+                        <span>
+                            <p><strong>Rendimentos</strong></p>
+                            <p>07:02</p>
+                        </span>
+                        <span>
+                            <p>Total</p>
+                            <p class="currency">+R$ 1,03</p>
+                        </span>
+                    </section>
+                </section>
+            </span>
+        </div>
+        
+
+        <div class="bloco">
+            <h1>08 abr 2022</h1>
+            <span>
+                <span class="saldo_do_dia">
+                    <p><strong>Saldo do dia</strong></p>
+                    <p>R$ 520,67</p>
+                </span>
+                <section class="infos">
+                    <div class="imgem"></div>
+                    <section>
+                        <span>
+                            <p><strong>Rendimentos</strong></p>
+                            <p>13:04</p>
+                        </span>
+                        <span>
+                            <p>Total</p>
+                            <p class="currency">+R$ 0,83</p>
+                        </span>
+                    </section>
+                </section>
+            </span>
+        </div>
+        
+
+        <div class="bloco">
+            <h1>08 mar 2022</h1>
+            <span>
+                <span class="saldo_do_dia">
+                    <p><strong>Saldo do dia</strong></p>
+                    <p>R$ 40,21</p>
+                </span>
+                <section class="infos">
+                    <div class="imgem"></div>
+                    <section>
+                        <span>
+                            <p><strong>Rendimentos</strong></p>
+                            <p>00:37</p>
+                        </span>
+                        <span>
+                            <p>Total</p>
+                            <p class="currency">+R$ 0,61</p>
+                        </span>
+                    </section>
+                </section>
+            </span>
+        </div>
+        
+
+        <div class="bloco">
+            <h1>09 fev 2022</h1>
+            <span>
+                <span class="saldo_do_dia">
+                    <p><strong>Saldo do dia</strong></p>
+                    <p>R$ 30,41</p>
+                </span>
+                <section class="infos">
+                    <div class="imgem"></div>
+                    <section>
+                        <span>
+                            <p><strong>Rendimentos</strong></p>
+                            <p>15:27</p>
+                        </span>
+                        <span>
+                            <p>Total</p>
+                            <p class="currency">+R$ 0,23</p>
+                        </span>
+                    </section>
+                </section>
+            </span>
+        </div>
+
+        
+
+        <div class="bloco">
+            <h1>08 jan 2022</h1>
+            <span>
+                <span class="saldo_do_dia">
+                    <p><strong>Saldo do dia</strong></p>
+                    <p>R$ 230,51</p>
+                </span>
+                <section class="infos">
+                    <div class="imgem"></div>
+                    <section>
+                        <span>
+                            <p><strong>Rendimentos</strong></p>
+                            <p>10:47</p>
+                        </span>
+                        <span>
+                            <p>Total</p>
+                            <p class="currency">+R$ 0,15</p>
+                        </span>
+                    </section>
+                </section>
+            </span>
+        </div>
+        
+    </main>
+
+</body>
+</html>
