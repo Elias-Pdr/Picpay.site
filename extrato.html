@@ -7,19 +7,31 @@
     <title>Document</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700&display=swap');
+        :root{
+            --largura: 100%;
+        }
 
         *{
             margin: 0%;
             padding: 0%;
             font-family: 'Nunito Sans', sans-serif;
         }
+
+        header{
+            width:  var(--largura);
+            height: 12.22vw;
+        }
+
         .home_topo_111px{
             background-image: url(img/extrato_topo_88px.png);
             background-size: cover;
             background-repeat: no-repeat;
             width:  var(--largura);
             height: 12.22vw;
-            box-shadow: 1px 0px 16px 4px rgba(0, 0, 0, 0.274);
+            box-shadow: 1px 0px 10px 4px #00000017;
+            text-decoration: none;
+            position: fixed;
+            top: 0;
         }
 
         .bloco{
@@ -52,7 +64,6 @@
         .infos{
             display: flex;
             margin-left: 10px;
-            margin-right: 10px;
         }
 
         .infos section{
@@ -84,15 +95,19 @@
         .saldo_do_dia{
             display: flex;
             justify-content: space-between;
-            margin: 10px 30px 10px 10px;
+            margin: 10px 20px 10px 20px;
         }
-
+        #debito{
+            color: rgb(233, 3, 3);
+        }
 
     </style>
 </head>
 <body>
     <header>
-        <div class="home_topo_111px"></div>
+        <a href="index.html">
+            <div class="home_topo_111px"></div>
+        </a>
     </header>
     <main>
 
@@ -112,7 +127,7 @@
                     </section>
                     <span>
                         <p>Total</p>
-                        <p class="currency">+R$ 0,01</p>
+                        <p id="debito">-R$ preço</p>
                     </span>
                 </section>
             </section>
