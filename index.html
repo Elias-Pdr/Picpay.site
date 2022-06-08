@@ -181,9 +181,15 @@
     <script>
             const txt_saldo = document.getElementById('dinheiro')
 
-            let static_dinheiro = sessionStorage.getItem("dinheiro")
-            console.log(static_dinheiro);
-            txt_saldo.innerHTML = static_dinheiro
+            let static_dinheiro = parseFloat(sessionStorage.getItem("dinheiro"))
+
+            const formatter = new Intl.NumberFormat("pt-br", {
+                style: "currency",
+                currency: "BRL",
+                minimumFractionDigits:2,
+            })
+
+            txt_saldo.innerHTML = formatter.format(static_dinheiro)
 
     </script>
 </body>

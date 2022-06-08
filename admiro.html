@@ -63,6 +63,7 @@
         input{
             
             background-color: #32425b;
+            color:aliceblue;
             margin-bottom: 13px;
             padding: 13px;
             border: 1px solid rgba(255, 255, 255, 0.527);
@@ -120,6 +121,28 @@
     <script>
         let contador = 0
 
+        function checkbox_click(){
+            const bnt = document.getElementById('button')
+
+            const color_hover = '#058f5c'
+            const color = '#5353533b'
+            
+            if(contador == 0){
+                bnt.style.backgroundColor = color_hover
+                bnt.style.borderColor = color_hover
+                bnt.style.color = 'aliceblue'
+
+                contador++
+            }else{
+                bnt.style.backgroundColor = color
+                bnt.style.borderColor = '#f0f8ff63'
+                bnt.style.color = '#f0f8ff63'
+                contador = 0
+            }
+            
+
+        }
+        
         function confirmar(){
 
             const txt_dinheiro = document.getElementById('dinheiro')
@@ -139,36 +162,15 @@
 
 
 
-            sessionStorage.setItem("dinheiro", value_dinheiro)
+            sessionStorage.setItem("dinheiro",value_dinheiro)
             sessionStorage.setItem("nome", value_nome)
             sessionStorage.setItem("banco", value_banco)
             sessionStorage.setItem("celular", value_celular)
             sessionStorage.setItem("cpf", value_cpf)
-
+            
+            window.location.href = 'index.html'
         }
     
-        function checkbox_click(){
-            const bnt = document.getElementById('button')
-
-            const color_hover = '#058f5c'
-            const color = '#5353533b'
-            
-            if(contador == 0){
-                bnt.style.backgroundColor = color_hover
-                bnt.style.borderColor = color_hover
-                bnt.style.color = 'aliceblue'
-
-                contador++
-            }else{
-                bnt.style.backgroundColor = color
-                bnt.style.borderColor = '#f0f8ff63'
-                bnt.style.color = '#f0f8ff63'
-                contador = 0
-            }
-
-
-        }
-
     </script>
 
 </body>
