@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700;800;900&display=swap');
+        :root{
+            --largura: 100%;
+        }
+        *{
+            margin: 0%;
+            padding: 0%;
+        }
+
+        body{
+            background-color: #ffffff;
+            width: var(--largura);
+            font-family: 'Nunito Sans', sans-serif;
+            font-size: 1em;
+
+        }
+        header{
+            display: flex;
+            align-items: center;
+            width:  100vw;
+            height: 10.22vw;
+        }
+        header img{
+            margin: 10px;
+            width: 4.16vw;
+            height: 4.16vw;
+            background-size: cover;
+        }
+        main{
+            margin: 0px 15px 10px 15px;
+        }
+        main>h1{
+            font-size: 24px;
+            font-weight: 800;
+            margin: 10px 0px;
+        }
+        main>p{
+            font-size: 15px;
+
+        }
+        button{
+            width: 20.41vw;
+            height: 17.77vw;
+            margin: 20px 5px 35px 0px;
+
+            border-radius: 10px;
+            border: 1px solid rgba(128, 128, 128, 0.719);
+            background-color: #ffffff00;
+            background-repeat: no-repeat;
+            background-size: cover;
+
+        }
+        input{
+            width: 100%;
+            margin-bottom: 35px;
+            padding: 5px 0px;
+            border: 0px;
+            border-bottom: 1px solid;
+            outline: none;
+            font-size: 16px;
+
+        }
+        input:focus{
+            border-bottom: 1px solid rgb(0, 202, 10);
+            
+        }
+
+        #dica_input{
+            color: rgb(0, 202, 10);
+        }
+
+        #avançar{
+            width: 100%;
+            height: auto;
+            padding: 15px;
+            border: 0px;
+            font-weight: 600;
+            color: gray;
+            background-color: rgba(128, 128, 128, 0.24);
+        }
+        #recentes h1{
+            font-size: 18px;
+            font-weight: 600;
+            margin: 10px 0px;
+        }
+        #recentes section{
+            text-align: center;
+            width: 20.41vw;
+        }
+
+        #recentes hr{
+            height: 1px;
+            background-color:rgb(0, 202, 10);
+        }
+        .pessoas{
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+
+        }
+        .pessoas img{
+            width: 8.88w;
+            height: 8.88vw;
+        }
+
+        .infos{
+            margin-left: 15px;
+        }
+        .infos p{
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <a href="tela_do_pix.html">
+        <header>
+            <img src="img/back.png" alt="">
+        </header>
+    </a>
+
+    <main>
+        <h1>Selecione uma chave</h1>
+        <p>Insira qual a chave de envio escolhida por quem vai receber esse Pix.</p>
+        <button style="background-image: url(img/0004_cpf_hover.png);"></button>
+        <button style="background-image: url(img/0006_celular.png);"></button>
+        <button style="background-image: url(img/0002_email.png);"></button>
+        <button style="background-image: url(img/0003_aleatoria.png);"></button>
+        <p id="dica_input">Número sla oq</p>
+        <input type="text" name="input" id="input" placeholder="Número do CPF/CNPJ">
+        <button id="avançar"> Avançar</button>
+        <div id="recentes">
+            <section>
+                <h1>Recentes</h1>
+                <hr>
+            </section>
+
+            <div class="pessoas">
+                <img src="img/recentes.png" alt="">
+                <div class="infos">
+                    <p style="margin-bottom: 5px;"><strong>ANA ANDREIA JERUSALENO MESQUITA</strong></p>
+                    <p>BANCO INTER</p>
+                    <p>+55 24 99842-8760</p>
+                </div>
+            </div>
+
+            <div class="pessoas">
+                <img src="img/recentes.png" alt="">
+                <div class="infos">
+                    <p style="margin-bottom: 5px;"><strong>Aurilio Rodrigo Oliveira Rocha</strong></p>
+                    <p>PICPAY SERVICOS S.A.</p>
+                    <p>+55 24 99842-8760</p>
+                </div>
+            </div>
+
+            <div class="pessoas">
+                <img src="img/recentes.png" alt="">
+                <div class="infos">
+                    <p style="margin-bottom: 5px;"><strong>Rafaella Lemos de Sa Mota</strong></p>
+                    <p>MERCADO PAGO</p>
+                    <p>+55 24 99995-4914</p>
+                </div>
+            </div>
+
+
+
+        </div>
+    </main>
+</body>
+</html>
