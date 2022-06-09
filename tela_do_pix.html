@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700&display=swap');
+       
+        :root{
+            --largura: 100%;
+        }
+        *{
+            margin: 0%;
+            padding: 0%;
+        }
+
+        body{
+            background-color: #ffffff;
+            width: var(--largura);
+            font-family: 'Nunito Sans', sans-serif;
+            font-size: 1em;
+
+        }
+        
+        .home_topo_111px{
+            background-image: url(img/pix_top.png);
+            background-size: cover;
+            background-repeat: no-repeat;
+            width:  var(--largura);
+            height: 12.22vw;
+            text-decoration: none;
+            position: fixed;
+            top: 0;
+        }
+        main{
+            margin: 12.22vw 20px 30px 20px;
+
+        }
+
+        main h1{
+            font-size: 28px;
+        }
+        main p{
+            margin: 5px 0px;
+            font-size: 16px;
+            display: inline;
+        }
+
+        main h2{
+            margin-top: 20px;
+            margin-bottom: 5px;
+            font-weight: bolder;
+            font-size: 24px;
+        }
+        #bnts{           
+            overflow: hidden;
+            overflow-x: scroll;
+            height: 21.94vw;
+            width: 680px;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0px;
+            height: 0px;
+            background: #37ec0062;
+        }
+        button{
+            width: 22.22vw;
+            height: 21.94vw;
+            margin-right: 5px;
+            border-radius: 10px;
+            border: 1px solid rgba(128, 128, 128, 0.719);
+            background-color: #ffffff00;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .bnt_comprido{
+            padding: 10px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            margin-right: 5px;
+            border-radius: 10px;
+            border: 1px solid rgba(128, 128, 128, 0.719);
+            background-color: #ffffff00;
+            background-repeat: no-repeat;
+            background-size: cover;
+            
+
+        }
+        .icon{
+            display: block;
+            width: 10.55vw;
+            height: 10.55vw;
+            background-repeat: no-repeat;
+            background-size: cover;
+
+        }
+    </style>
+
+</head>
+<body>
+    <header>
+        <a href="index.html">
+            <div class="home_topo_111px"></div>
+        </a>
+    </header>
+
+    <main>
+        <h1>Pix</h1>
+        <p>Transfira dinheiro, pague contas, saque e receba pagamentos a qualquer hora</p>
+        <h2>Transferir ou pagar</h2>
+        <div id="bnts">
+            <a href=""><button style="background-image: url(img/pix__0001_..png);"></button></a>
+            <a href=""><button style="background-image: url(img/pix__0002_..png);"></button></a>
+            <a href=""><button style="background-image: url(img/pix__0003_..png);"></button></a>
+            <button style="background-image: url(img/pix__0000_..png);"></button>
+        </div>
+        <h2>Cobrar ou receber</h2>
+        <button style="background-image: url(img/pix__0004_..png);"></button>
+        <h2>Minhas chaves</h2>
+        
+        <div class="bnt_comprido" >
+            <img class="icon" src="img/pix_iconx_0001_..png" alt="">
+            <p>Cadastre ou compartilhe sua chave Pix para receber pagamentos com facilidade</p>
+        </div>
+
+        <h2>Meus limites Pix</h2>
+
+        <div class="bnt_comprido">
+            <img class="icon" src="img/pix_iconx_0002_..png" alt="">
+            <p>Ajuste seus limites diários para transferêsncia e pagamentos</p>
+        </div>
+        
+        <h2>Precisa de ajuda?</h2>
+
+        <div class="bnt_comprido" >
+            <img class="icon" src="img/pix_iconx_0000_..png" alt="">
+            <p>Entre em contato com a gente</p>
+        </div>
+
+    </main>
+
+
+
+</body>
+</html>
