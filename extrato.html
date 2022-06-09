@@ -277,10 +277,10 @@
 
     <script>
         const nome_txt = document.getElementById('nome')
-        nome_txt.innerHTML = sessionStorage.getItem("nome")
+        nome_txt.innerHTML = localStorage.getItem("nome")
 
         const banco_txt = document.getElementById('banco')
-        banco_txt.innerHTML = 'Instituição: ' + sessionStorage.getItem("banco")
+        banco_txt.innerHTML = 'Instituição: ' + localStorage.getItem("banco")
         
         const data_txt = document.getElementById('data')
         let data = new Date()

@@ -129,7 +129,7 @@
 
             background-repeat: no-repeat;
             width: 100vw;
-            height: 3616px;
+            height: 518vw;
             border-radius: 15px 15px 0px 0px;
 
         }
@@ -181,7 +181,7 @@
     <script>
             const txt_saldo = document.getElementById('dinheiro')
 
-            let static_dinheiro = parseFloat(sessionStorage.getItem("dinheiro"))
+            let static_dinheiro = parseFloat(localStorage.getItem("dinheiro"))
 
             const formatter = new Intl.NumberFormat("pt-br", {
                 style: "currency",
