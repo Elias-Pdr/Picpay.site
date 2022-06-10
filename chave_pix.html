@@ -53,7 +53,19 @@
 
             border-radius: 10px;
             border: 1px solid rgba(128, 128, 128, 0.719);
-            background-color: #ffffff00;
+            background-color: #016533;
+            background-repeat: no-repeat;
+            background-size: cover;
+
+        }
+        main>img{
+            width: 20.41vw;
+            height: 17.77vw;
+            margin: 20px 5px 35px 0px;
+
+            border-radius: 10px;
+            border: 1px solid rgba(128, 128, 128, 0.719);
+            background-color: #016533;
             background-repeat: no-repeat;
             background-size: cover;
 
@@ -129,13 +141,16 @@
     <main>
         <h1>Selecione uma chave</h1>
         <p>Insira qual a chave de envio escolhida por quem vai receber esse Pix.</p>
-        <button style="background-image: url(img/0004_cpf_hover.png);"></button>
-        <button style="background-image: url(img/0006_celular.png);"></button>
-        <button style="background-image: url(img/0002_email.png);"></button>
-        <button style="background-image: url(img/0003_aleatoria.png);"></button>
+        
+        <img onclick="chave('cpf')" id="cpf" src="img/0004_cpf_hover.png"></img>
+        <img onclick="chave('celular')" id="celular" src="img/0006_celular.png"></img>
+        <img onclick="chave('email')" id="email" src="img/0002_email.png"></img>
+
+        <img id="aleatoria" src="img/0003_aleatoria.png" ></img>
+                
         <p id="dica_input">Número sla oq</p>
         <input type="text" name="input" id="input" placeholder="Número do CPF/CNPJ">
-        <button id="avançar"> Avançar</button>
+        <button id="avançar"  > Avançar</button>
         <div id="recentes">
             <section>
                 <h1>Recentes</h1>
@@ -172,6 +187,47 @@
 
 
         </div>
+
     </main>
+
+    <script>
+
+        const bnt_cpf = document.getElementById('cpf')
+        const bnt_celular = document.getElementById('celular')
+        const bnt_email = document.getElementById('email')
+        const dica_input = document.getElementById('dica_input')
+        const input_txt = document.getElementById('dica_input')
+
+         
+        function chave(n){
+            switch (n) {
+                case "cpf":
+                    dica_input.innerHTML = 'Número do CPF/CNPJ'
+                    bnt_cpf.src = 'img/0004_cpf_hover.png'; 
+                    bnt_celular.src = 'img/0006_celular.png'; 
+                    bnt_email.src = 'img/0002_email.png'; 
+                
+                    break;
+                case "celular":
+                    dica_input.innerHTML = 'Número do Celular'
+                    bnt_cpf.src = 'img/0000_cpf.png'; 
+                    bnt_celular.src = 'img/0001_celular_hover.png'; 
+                    bnt_email.src = 'img/0002_email.png'; 
+                
+                    break;
+                case "email":
+                    dica_input.innerHTML = 'Endereço de E-mail'
+                    bnt_cpf.src = 'img/0000_cpf.png'; 
+                    bnt_celular.src = 'img/0006_celular.png'; 
+                    bnt_email.src = 'img/0005_email_hover.png'; 
+
+                    break;
+            }
+        }
+
+
+
+
+    </script>
 </body>
 </html>
