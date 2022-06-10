@@ -196,12 +196,17 @@
         const bnt_celular = document.getElementById('celular')
         const bnt_email = document.getElementById('email')
         const dica_input = document.getElementById('dica_input')
-        const input_txt = document.getElementById('dica_input')
+        const input_txt = document.getElementById('input')
 
-         
+
+
         function chave(n){
+            input_txt.focus()
+            input_txt.placeholder = ""
+
             switch (n) {
                 case "cpf":
+                    input_txt.value = '';
                     dica_input.innerHTML = 'Número do CPF/CNPJ'
                     bnt_cpf.src = 'img/0004_cpf_hover.png'; 
                     bnt_celular.src = 'img/0006_celular.png'; 
@@ -209,6 +214,7 @@
                 
                     break;
                 case "celular":
+                    input_txt.value = '+55 ';
                     dica_input.innerHTML = 'Número do Celular'
                     bnt_cpf.src = 'img/0000_cpf.png'; 
                     bnt_celular.src = 'img/0001_celular_hover.png'; 
@@ -216,6 +222,7 @@
                 
                     break;
                 case "email":
+                    input_txt.value = '';
                     dica_input.innerHTML = 'Endereço de E-mail'
                     bnt_cpf.src = 'img/0000_cpf.png'; 
                     bnt_celular.src = 'img/0006_celular.png'; 
