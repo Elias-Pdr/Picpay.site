@@ -71,7 +71,7 @@
 
         }
         input{
-            width: 100%;
+            width: 98%;
             margin-bottom: 35px;
             padding: 5px 0px;
             border: 0px;
@@ -148,8 +148,8 @@
 
         <img id="aleatoria" src="img/0003_aleatoria.png" ></img>
                 
-        <p id="dica_input">Número sla oq</p>
-        <input type="text" name="input" id="input" placeholder="Número do CPF/CNPJ">
+        <p id="dica_input"></p>
+        <input onclick="chave('cpf')" type="text" name="input" id="input" placeholder="Número do CPF/CNPJ">
         <button id="avançar"  > Avançar</button>
         <div id="recentes">
             <section>
@@ -197,10 +197,13 @@
         const bnt_email = document.getElementById('email')
         const dica_input = document.getElementById('dica_input')
         const input_txt = document.getElementById('input')
+        const avançar = document.getElementById('avançar')
 
+        avançar.style.display = "none"
 
 
         function chave(n){
+            avançar.style.display = "block"
             input_txt.focus()
             input_txt.placeholder = ""
 
