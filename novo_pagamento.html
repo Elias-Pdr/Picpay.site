@@ -225,7 +225,7 @@
                 <p id="banco">BANCO DA PESSOA</p>
                 <span id="moeda">
                     <p id="rs">R$ </p>
-                    <input onfocusout="input_focus('n')" onfocus="input_focus('s')" type="tel" name="valor" id="valor" placeholder="10,00">
+                    <input onfocus="input_focus('s')" type="tel" name="valor" id="valor" placeholder="20,00">
                 </span>
                 <img src="img/new_pay_parcelar_69x300px.png" alt="">
             </section>
@@ -321,7 +321,7 @@
         function input_focus(f){
             console.log(f);
             if(f == 's'){
-                 _footer.style.marginBottom = '74.86vw'
+                 _footer.style.marginBottom = '64.02vw'
             }else if(f == 'n'){
                 _footer.style.marginBottom = '0vw'
             }
