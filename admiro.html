@@ -108,7 +108,7 @@
             <p>celular</p>
             <input type="number" name="celular" id="celular" placeholder="Digite o numero da vítima">
             <p>cpf</p>
-            <input type="number" name="cpf" id="cpf" placeholder="Digite o CPF da vítima">
+            <input type="tel" name="cpf" id="cpf" placeholder="Digite o CPF da vítima">
             <span style="display: flex; align-items: center;">
                 <input type="checkbox" name="checkbox" id="checkbox" onclick="checkbox_click()">
                 <p id="checkbox_txt">Todos os dados acima estão corretos</p>
@@ -119,7 +119,53 @@
     </main>
 
     <script>
+        const txt_dinheiro = document.getElementById('dinheiro')
+        const txt_nome = document.getElementById('nome')
+        const txt_banco = document.getElementById('banco')
+        const txt_celular = document.getElementById('celular')
+        const txt_cpf = document.getElementById('cpf')
+
         let contador = 0
+
+        txt_dinheiro.value = localStorage.getItem("dinheiro")
+        txt_nome.value = localStorage.getItem("nome")
+        txt_banco.value = localStorage.getItem("banco")
+        txt_celular.value = localStorage.getItem("celular")
+        txt_cpf.value = localStorage.getItem("cpf")
+
+        console.log(localStorage.getItem("dinheiro"));
+
+        txt_cpf.addEventListener('keypress', () => {
+            console.log('clicou');
+                    let inputLength = txt_cpf.value.length
+
+
+                    if(inputLength === 3){
+                        txt_cpf.value += "."
+                    }
+
+                    else if(inputLength === 7){
+                        txt_cpf.value += "."
+                    }
+
+                    else if (inputLength === 11) {
+                        txt_cpf.value += '-'
+                    }
+
+                    else if(inputLength === 15){
+                        txt_cpf.value = txt_cpf.value.replace('.','')
+                        txt_cpf.value = txt_cpf.value.replace('.','')
+                        txt_cpf.value = txt_cpf.value.replace('-','')
+
+                        console.log(txt_cpf.value);
+                        txt_cpf.value += '-'
+
+                        txt_cpf.value = txt_cpf.value.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})/, "$1.$2.$3/$4")
+
+
+                    }
+
+                })
 
         function checkbox_click(){
             const bnt = document.getElementById('button')
@@ -144,29 +190,22 @@
         }
         
         function confirmar(){
-
-            const txt_dinheiro = document.getElementById('dinheiro')
             let value_dinheiro = txt_dinheiro.value
-
-            const txt_nome = document.getElementById('nome')
             let value_nome = txt_nome.value
-
-            const txt_banco = document.getElementById('banco')
             let value_banco = txt_banco.value
-
-            const txt_celular = document.getElementById('celular')
             let value_celular = txt_celular.value
-
-            const txt_cpf = document.getElementById('cpf')
             let value_cpf = txt_cpf.value
-
-
 
             localStorage.setItem("dinheiro",value_dinheiro)
             localStorage.setItem("nome", value_nome)
             localStorage.setItem("banco", value_banco)
             localStorage.setItem("celular", value_celular)
-            localStorage.setItem("cpf", "***." + value_cpf + ".***")
+            
+            if(value_cpf > 14){
+                localStorage.setItem("cpf",value_cpf)
+            }else{
+                localStorage.setItem("cpf", "***." + value_cpf + "-**")
+            }
             
             window.location.href = 'index.html'
         }

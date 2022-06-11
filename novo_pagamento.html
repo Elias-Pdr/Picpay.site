@@ -8,7 +8,7 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700;800;900&display=swap');
         :root{
-            --largura: 100%;
+            --largura: 100vw;
         }
         *{
             margin: 0%;
@@ -20,6 +20,7 @@
             width: var(--largura);
             font-family: 'Nunito Sans', sans-serif;
             font-size: 1em;
+            margin: auto;
 
         }
         header{
@@ -27,6 +28,7 @@
             align-items: center;
             width:  100vw;
             height: 10.22vw;
+            margin: 10px 0px;
         }
         header img{
             margin: 10px;
@@ -45,9 +47,8 @@
 
         #conteiner{
             display: flex;
-            width: 100%;
+            width: 98vw;
             padding: 3px;
-            margin-top: 10px;
         }
         #conteiner>img{
             width: 13.19vw;
@@ -57,13 +58,20 @@
         #infos{
             width: 100%;
         }
-        #infos input{
-            font-size: 24px;
+        
+        input{
+            font-size: 28px;
             font-weight: bold;
             border: 0px;
-            color: darkgreen;
+            color:  rgb(5, 124, 5);
+            border: 0px;
+            outline: none;
+
         }
-        
+
+
+
+
         #infos>img{
             display: block;
             width: 41.66vw;
@@ -82,11 +90,11 @@
         }
         .lado_ a{
             text-decoration: underline;
-            color: darkgreen;
+            color:  rgb(5, 124, 5);
             font-size: 14px;
         }
         hr{
-            background-color: rgba(112, 112, 112, 0.637);
+            background-color: rgba(112, 112, 112, 0.432);
             height: 1px;
             border: 0px;
         }
@@ -119,32 +127,35 @@
 
         footer{
             position: fixed;
-            width: 100%;
-            bottom: 0;
+            width: 99vw;
+            bottom: 5px;
         }
 
-        #saldo{
+
+
+
+        #saldo_container{
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 15px;
         }
-        #saldo div{
+        #saldo_container div{
             display: flex;
             align-items: center;
         }
-        #saldo img{
+        #saldo_container img{
             width: 5.13vw;
             height: 5.13vw;
         }
 
-        #saldo a{
+        #saldo_container a{
             text-decoration: underline;
-            color: darkgreen;
+            color:  rgb(5, 124, 5);
             font-size: 14px;
         }
 
-        #saldo section{
+        #saldo_container section{
             margin: 0px 10px;
         }
         section p{
@@ -154,11 +165,18 @@
         #bnt_pagar{
             padding: 10px 20px;
             color: aliceblue;
-            background-color: darkgreen;
+            background-color: rgb(5, 124, 5);
             border: 0px;
             border-radius: 10px;
+            font-weight: 600;
         }
 
+        .strong{
+            font-weight: bold;
+        }
+        #nome{
+            margin-bottom: 5px;
+        }
     </style>
 </head>
 <body>
@@ -173,10 +191,10 @@
         <div id="conteiner">
             <img src="img/avatar_95px.png" alt="">
             <section id="infos">
-                <p id="nome"><strong>ANA ANDREIA JERUSALENO CALABIANQUI</strong></p>
+                <p class="strong" id="nome">ANA ANDREIA JERUSALENO CALABIANQUI</p>
                 <p id="cpf">***.986.987-**</p>
                 <p id="banco">BANCO DA PESSOA</p>
-                <span style="display: flex; align-items: flex-end;">
+                <span style="display: flex; align-items: center;">
                     <p style="margin-right: 5px;font-weight: bold;">R$ </p>
                     <input type="number" name="valor" id="valor" placeholder="0,00">
                 </span>
@@ -187,7 +205,7 @@
         <div>
             <section class="lado_">
                 <p>Pagar hoje</p>
-                <p><strong>data</strong></p>
+                <p class="strong" id="data">data</p>
             </section>
             <section class="lado_">
                 <p>Agendar</p>
@@ -210,19 +228,81 @@
 
         <hr>
 
-        <div id="saldo">
+        <div id="saldo_container">
             <div>
                 <img src="img/new_pay_saldo_37px.png" alt="">
                 <section>
                     <p>Forma de pagamento:</p>
-                    <a href="">Saldo: null</a>
+                    <a id="saldo" href="">Saldo: null</a>
                 </section>
             </div>
-            <button id="bnt_pagar">Pagar</button>
+            <button id="bnt_pagar" onclick="pagar()">Pagar</button>
         </div>
 
         <hr>
 
     </footer>
+
+    
+
+    <script>
+        const preço_txt = document.getElementById('valor')
+
+        const nome_txt = document.getElementById('nome')
+        nome_txt.innerHTML = localStorage.getItem("nome").toUpperCase()
+
+        const banco_txt = document.getElementById('banco')
+        banco_txt.innerHTML = localStorage.getItem("banco").toUpperCase()
+
+        const banco_cpf = document.getElementById('cpf')
+
+        if(localStorage.getItem("cpf").length > 7){
+            banco_cpf.innerHTML = localStorage.getItem("cpf")
+        }else{
+            banco_cpf.innerHTML = "***." + localStorage.getItem("cpf") + "-**"
+        }
+
+        const banco_saldo = document.getElementById('saldo')
+        
+        let static_dinheiro = parseFloat(localStorage.getItem("dinheiro"))
+
+        const formatter = new Intl.NumberFormat("pt-br", {
+            style: "currency",
+            currency: "BRL",
+            minimumFractionDigits:2,
+        })
+
+        banco_saldo.innerHTML = 'Saldo: ' + formatter.format(static_dinheiro)
+
+
+        const data_txt = document.getElementById('data')
+
+        let data = new Date()
+
+        let minuto = data.getMinutes()
+        let hora = data.getHours()
+        let dia = data.getDate()
+        let mês = (data.getUTCMonth() + 1).toString()
+        let ano = data.getFullYear()
+
+        localStorage.setItem("hora_do_pagamento", hora + ':' + minuto)
+
+
+
+        function pagar() {
+            localStorage.setItem("preço",preço_txt.value)
+            console.log(localStorage.getItem("preço"));
+
+        }
+
+        if(mês <10){
+            mês = '0'+ mês
+        }
+        data = dia +'/'+ mês +'/'+ ano
+
+        data_txt.innerHTML = data
+        
+        
+    </script>
 </body>
 </html>

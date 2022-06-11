@@ -97,7 +97,7 @@
             justify-content: space-between;
             margin: 10px 20px 10px 20px;
         }
-        #debito{
+        #preço{
             color: rgb(233, 3, 3);
         }
 
@@ -119,7 +119,7 @@
                 <section>
                     <span>
                         <p><strong>PIX enviado</strong></p>
-                        <p>hora</p>
+                        <p id="hora">hora</p>
                     </span>
                     <section style="margin-left: 10px;">
                         <p id="nome">NOME DA PESSOA TROUXA</p>
@@ -127,7 +127,7 @@
                     </section>
                     <span>
                         <p>Total</p>
-                        <p id="debito">-R$ preço</p>
+                        <p id="preço">-R$ preço</p>
                     </span>
                 </section>
             </section>
@@ -276,11 +276,17 @@
     </main>
 
     <script>
+        const hora = document.getElementById('hora')
+        hora.innerHTML = localStorage.getItem("hora_do_pagamento")
+
+        const debito = document.getElementById('preço')
+        debito.innerHTML = "-" + localStorage.getItem("preço")
+
         const nome_txt = document.getElementById('nome')
-        nome_txt.innerHTML = localStorage.getItem("nome")
+        nome_txt.innerHTML = localStorage.getItem("nome").toUpperCase()
 
         const banco_txt = document.getElementById('banco')
-        banco_txt.innerHTML = 'Instituição: ' + localStorage.getItem("banco")
+        banco_txt.innerHTML = 'Instituição: ' + localStorage.getItem("banco").toUpperCase()
         
         const data_txt = document.getElementById('data')
         let data = new Date()

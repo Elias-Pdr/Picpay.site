@@ -193,11 +193,6 @@
     </main>
 
     <script>
-        function avan() {
-            window.location.href = 'novo_pagamento.html'
-
-        }
-
         const bnt_cpf = document.getElementById('cpf')
         const bnt_celular = document.getElementById('celular')
         const bnt_email = document.getElementById('email')
@@ -212,6 +207,44 @@
 
         input_new.style.display = "none"
         input_txt.style.display = "block"
+
+
+        function avan() {
+            if(input_txt.value == ''){
+                input_txt.value = localStorage.getItem("cpf")
+            }
+            else{
+                console.log(chave_escolhida);
+
+                if(chave_escolhida == 'cpf'){
+                    let cpf_input = input_txt.value
+                    let cpf_input_frac = cpf_input[4] +''+ cpf_input[5] +''+ cpf_input[6]
+                    let cpf_input_mask = cpf_input[4] +''+ cpf_input[5] +''+ cpf_input[6] +'.'+ cpf_input[8] +''+ cpf_input[9] +''+ cpf_input[10]
+
+                    let cpf_bdados = localStorage.getItem("cpf")
+                    let cpf_bdados_frac = cpf_bdados[4] +''+ cpf_bdados[5] +''+ cpf_bdados[6]
+
+
+                    if(cpf_input_frac == cpf_bdados_frac){
+                        console.log('É igual');
+                    }else{
+                        console.log('não é igual'); 
+                        localStorage.setItem("cpf", "***." + cpf_input_mask + "-**")
+
+                    }
+                }
+                else if(chave_escolhida == 'cnpj'){
+                    localStorage.setItem("cpf", input_txt.value)
+                }
+                else if(chave_escolhida == 'celular'){
+                    localStorage.setItem("celular", input_txt.value)
+                }
+
+                window.location.href = 'novo_pagamento.html'
+
+            }
+        }
+
 
 
 
@@ -247,10 +280,6 @@
                     break;
             }
         
-
-
-
-            console.log(chave_escolhida);
 
             if(chave_escolhida == 'cpf'){
                 input_new.style.display = "none"
@@ -334,6 +363,7 @@
                     }
 
                     else if(inputLength === 15){
+                        chave_escolhida = 'cnpj'
                         input_txt.value = input_txt.value.replace('.','')
                         input_txt.value = input_txt.value.replace('.','')
                         input_txt.value = input_txt.value.replace('-','')
