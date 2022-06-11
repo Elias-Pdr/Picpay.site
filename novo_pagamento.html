@@ -86,12 +86,20 @@
             margin: 0px 20px;
         }
         .lado_ p{
-            margin: 15px 0px;
+            margin: 15px 0px 15px 10px;
         }
         .lado_ a{
             text-decoration: underline;
             color:  rgb(5, 124, 5);
             font-size: 14px;
+        }
+        .lado_ img{
+            width: 5.55vw;
+            height: 5.55vw;
+        }
+        .lado_ section{
+            display: flex;
+            align-items: center;
         }
         hr{
             background-color: rgba(112, 112, 112, 0.432);
@@ -196,7 +204,7 @@
                 <p id="banco">BANCO DA PESSOA</p>
                 <span style="display: flex; align-items: center;">
                     <p style="margin-right: 5px;font-weight: bold;">R$ </p>
-                    <input type="number" name="valor" id="valor" placeholder="0,00">
+                    <input type="text" name="valor" id="valor" placeholder="0,00">
                 </span>
                 <img src="img/new_pay_parcelar_69x300px.png" alt="">
             </section>
@@ -204,11 +212,17 @@
         <hr>
         <div>
             <section class="lado_">
-                <p>Pagar hoje</p>
+                <section>
+                    <img src="img/pix/pix_check_holver_40px.png" alt="">
+                    <p>Pagar hoje</p>
+                </section>
                 <p class="strong" id="data">data</p>
             </section>
             <section class="lado_">
-                <p>Agendar</p>
+                <section>
+                    <img src="img/pix/pix_check_40px.png" alt="">
+                    <p>Agendar</p>
+                </section>
                 <p><a href=""><strong>Escolher data</strong></a></p>
             </section>
         </div>
@@ -263,7 +277,7 @@
         }
 
         const banco_saldo = document.getElementById('saldo')
-        
+
         let static_dinheiro = parseFloat(localStorage.getItem("dinheiro"))
 
         const formatter = new Intl.NumberFormat("pt-br", {
@@ -287,11 +301,15 @@
 
         localStorage.setItem("hora_do_pagamento", hora + ':' + minuto)
 
-
+        preço_txt.focus()
 
         function pagar() {
             localStorage.setItem("preço",preço_txt.value)
             console.log(localStorage.getItem("preço"));
+            localStorage.setItem("dinheiro", 100)
+            localStorage.setItem("dinheiro",parseFloat(localStorage.getItem("dinheiro")) - parseFloat(preço_txt.value) )
+
+            console.log(parseFloat (localStorage.getItem("dinheiro")));
 
         }
 
