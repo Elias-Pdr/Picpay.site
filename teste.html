@@ -9,7 +9,11 @@
 			body{
 				background-color:#111;
 			}
-			
+			input{
+				padding: 20px;
+				width: 100%;
+				font-size: 28px;
+			}
 
 		</style>
 
@@ -33,6 +37,11 @@
 					input_txt.value += '.'
 				}else if (inputLength === 11) {
 					input_txt.value += '-'
+				}
+				//37.356.542/0001-01
+				else if(inputLength > 13){
+					//input_txt.value = (input_txt.value.replace(/^(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4"))
+
 				}
 			})
 

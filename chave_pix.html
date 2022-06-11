@@ -143,13 +143,14 @@
         <p>Insira qual a chave de envio escolhida por quem vai receber esse Pix.</p>
         
         <img onclick="chave('cpf')" id="cpf" src="img/0004_cpf_hover.png"></img>
-        <img onclick="chave('celular')" id="celular" src="img/0006_celular.png"></img>
+        <img onclick="chave('celular')" id="celular" src="img/0006_celular.png" ></img>
         <img onclick="chave('email')" id="email" src="img/0002_email.png"></img>
 
         <img id="aleatoria" src="img/0003_aleatoria.png" ></img>
                 
         <p id="dica_input"></p>
-        <input onclick="chave('cpf')" type="text" name="input" id="input" placeholder="Número do CPF/CNPJ">
+        <input onclick="chave('celular')" type="tel" name="input_new" id="input_new">
+        <input onclick="chave('cpf')" type="tel" name="input" id="input" placeholder="Número do CPF/CNPJ">
         <button id="avançar"  > Avançar</button>
         <div id="recentes">
             <section>
@@ -197,9 +198,16 @@
         const bnt_email = document.getElementById('email')
         const dica_input = document.getElementById('dica_input')
         const input_txt = document.getElementById('input')
+        const input_new = document.getElementById('input_new')
         const avançar = document.getElementById('avançar')
 
         avançar.style.display = "none"
+
+        let chave_escolhida = 'cpf'
+
+        input_new.style.display = "none"
+        input_txt.style.display = "block"
+
 
 
         function chave(n){
@@ -214,15 +222,15 @@
                     bnt_cpf.src = 'img/0004_cpf_hover.png'; 
                     bnt_celular.src = 'img/0006_celular.png'; 
                     bnt_email.src = 'img/0002_email.png'; 
-                
+                    chave_escolhida = 'cpf'
                     break;
                 case "celular":
-                    input_txt.value = '+55 ';
                     dica_input.innerHTML = 'Número do Celular'
                     bnt_cpf.src = 'img/0000_cpf.png'; 
                     bnt_celular.src = 'img/0001_celular_hover.png'; 
                     bnt_email.src = 'img/0002_email.png'; 
-                
+                    chave_escolhida = 'celular'
+
                     break;
                 case "email":
                     input_txt.value = '';
@@ -230,13 +238,114 @@
                     bnt_cpf.src = 'img/0000_cpf.png'; 
                     bnt_celular.src = 'img/0006_celular.png'; 
                     bnt_email.src = 'img/0005_email_hover.png'; 
-
+                    chave_escolhida = 'email'
                     break;
             }
+        
+
+
+
+            console.log(chave_escolhida);
+
+            if(chave_escolhida == 'cpf'){
+                input_new.style.display = "none"
+                input_txt.style.display = "block"
+
+                avançar.style.color = 'gray'
+                avançar.style.backgroundColor = 'rgba(128, 128, 128, 0.24)'                    
+
+
+                input_txt.type = "tel";
+                formataçãoCpf()
+            }
+            
+            if(chave_escolhida == 'celular'){
+                input_new.style.display = "block"
+                input_txt.style.display = "none"
+
+                avançar.style.color = 'gray'
+                avançar.style.backgroundColor = 'rgba(128, 128, 128, 0.24)'                    
+
+
+                input_new.type = "tel";
+                input_new.value="+55"
+                input_new.focus()
+
+                input_new.addEventListener('keypress', () => {
+                    let inputLength = input_new.value.length
+
+                    if (inputLength >= 13 || input_new.value.search('@') != -1) {
+                        avançar.style.color = 'aliceblue'
+                        avançar.style.backgroundColor = '#016533'                    
+                    }else{
+                        avançar.style.color = 'gray'
+                        avançar.style.backgroundColor = 'rgba(128, 128, 128, 0.24)'                    
+                    }
+
+                    
+                    })
+            }
+            
+            if(chave_escolhida == 'email'){
+                input_new.style.display = "block"
+                input_txt.style.display = "none"
+
+                avançar.style.color = 'gray'
+                avançar.style.backgroundColor = 'rgba(128, 128, 128, 0.24)'                    
+
+
+                input_new.type = "email";
+                input_new.value=""
+                input_new.focus()
+
+            }
+
+
+
         }
 
+        function formataçãoCpf() {
+            input_txt.addEventListener('keypress', () => {
+                    let inputLength = input_txt.value.length
+
+                    if (inputLength >= 13) {
+                        avançar.style.color = 'aliceblue'
+                        avançar.style.backgroundColor = '#016533'                    
+                    }else{
+                        avançar.style.color = 'gray'
+                        avançar.style.backgroundColor = 'rgba(128, 128, 128, 0.24)'                    
+                    }
+
+                    if(inputLength === 3){
+                        input_txt.value += "."
+                    }
+
+                    else if(inputLength === 7){
+                        input_txt.value += "."
+                    }
+
+                    else if (inputLength === 11) {
+                        input_txt.value += '-'
+                    }
+
+                    else if(inputLength === 15){
+                        input_txt.value = input_txt.value.replace('.','')
+                        input_txt.value = input_txt.value.replace('.','')
+                        input_txt.value = input_txt.value.replace('-','')
+
+                        console.log(input_txt.value);
+                        input_txt.value += '-'
+
+                        input_txt.value = input_txt.value.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})/, "$1.$2.$3/$4")
+				        //12.345.678/0001-01
+				        //123456780001
 
 
+                    }
+
+                })
+            
+        }
 
     </script>
 </body>
