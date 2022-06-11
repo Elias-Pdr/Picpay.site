@@ -60,10 +60,10 @@
         }
         
         input{
-            font-size: 28px;
+            font-size: 30px;
             font-weight: bold;
             border: 0px;
-            color:  rgb(5, 124, 5);
+            color:  rgb(2, 119, 58);
             border: 0px;
             outline: none;
 
@@ -90,7 +90,7 @@
         }
         .lado_ a{
             text-decoration: underline;
-            color:  rgb(5, 124, 5);
+            color:  rgb(0 145 71);
             font-size: 14px;
         }
         .lado_ img{
@@ -103,12 +103,12 @@
         }
         hr{
             background-color: rgba(112, 112, 112, 0.432);
-            height: 1px;
+            height: 0.13vw;
             border: 0px;
         }
         #hint{
             margin: 20px 15px;
-            color: rgb(82, 82, 82);
+            color: rgba(82, 82, 82, 0.699);
 
         }
         #public{
@@ -159,7 +159,7 @@
 
         #saldo_container a{
             text-decoration: underline;
-            color:  rgb(5, 124, 5);
+            color:  rgb(0 145 71);
             font-size: 14px;
         }
 
@@ -168,12 +168,12 @@
         }
         section p{
             margin: 0%;
-            font-size: 14px;
+            font-size: 18px;
         }
         #bnt_pagar{
             padding: 10px 20px;
             color: aliceblue;
-            background-color: rgb(5, 124, 5);
+            background-color: rgb(0 145 71);
             border: 0px;
             border-radius: 10px;
             font-weight: 600;
@@ -184,6 +184,8 @@
         }
         #nome{
             margin-bottom: 5px;
+            font-weight: 900;
+
         }
     </style>
 </head>
@@ -253,7 +255,6 @@
             <button id="bnt_pagar" onclick="pagar()">Pagar</button>
         </div>
 
-        <hr>
 
     </footer>
 
@@ -306,7 +307,6 @@
         function pagar() {
             localStorage.setItem("preço",preço_txt.value)
             console.log(localStorage.getItem("preço"));
-            localStorage.setItem("dinheiro", 100)
             localStorage.setItem("dinheiro",parseFloat(localStorage.getItem("dinheiro")) - parseFloat(preço_txt.value) )
 
             console.log(parseFloat (localStorage.getItem("dinheiro")));
