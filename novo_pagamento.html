@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700;800;900&display=swap');
+        :root{
+            --largura: 100%;
+        }
+        *{
+            margin: 0%;
+            padding: 0%;
+        }
+
+        body{
+            background-color: #ffffff;
+            width: var(--largura);
+            font-family: 'Nunito Sans', sans-serif;
+            font-size: 1em;
+
+        }
+        header{
+            display: flex;
+            align-items: center;
+            width:  100vw;
+            height: 10.22vw;
+        }
+        header img{
+            margin: 10px;
+            width: 4.16vw;
+            height: 4.16vw;
+            background-size: cover;
+        }
+        header h1{
+            font-size: 24px;
+            margin-left: 10px;
+        }
+        a{
+            text-decoration: none;
+            color: black;
+        }
+
+        #conteiner{
+            display: flex;
+            width: 100%;
+            padding: 3px;
+            margin-top: 10px;
+        }
+        #conteiner>img{
+            width: 13.19vw;
+            height: 13.19vw;
+            margin: 0px 15px;
+        }
+        #infos{
+            width: 100%;
+        }
+        #infos input{
+            font-size: 24px;
+            font-weight: bold;
+            border: 0px;
+            color: darkgreen;
+        }
+        
+        #infos>img{
+            display: block;
+            width: 41.66vw;
+            height: 9.58vw;
+            border: 1px solid rgba(49, 49, 49, 0.808);
+            border-radius: 30px;
+            margin: 13px 0px;
+        }
+        .lado_{
+            display: flex;
+            justify-content: space-between;
+            margin: 0px 20px;
+        }
+        .lado_ p{
+            margin: 15px 0px;
+        }
+        .lado_ a{
+            text-decoration: underline;
+            color: darkgreen;
+            font-size: 14px;
+        }
+        hr{
+            background-color: rgba(112, 112, 112, 0.637);
+            height: 1px;
+            border: 0px;
+        }
+        #hint{
+            margin: 20px 15px;
+            color: rgb(82, 82, 82);
+
+        }
+        #public{
+            display: flex;
+            align-items: center;
+            padding: 15px;
+        }
+        #public #img_seta{
+            width: 3.05vw;
+            height: 3.05vw;
+
+        }
+        #public #img_public{
+            width: 3.88vw;
+            height: 3.05vw;
+
+        }
+
+        #public>#img_public, #img_seta, p{
+            margin: 0px 10px;
+        }
+
+
+
+        footer{
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+
+        #saldo{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+        }
+        #saldo div{
+            display: flex;
+            align-items: center;
+        }
+        #saldo img{
+            width: 5.13vw;
+            height: 5.13vw;
+        }
+
+        #saldo a{
+            text-decoration: underline;
+            color: darkgreen;
+            font-size: 14px;
+        }
+
+        #saldo section{
+            margin: 0px 10px;
+        }
+        section p{
+            margin: 0%;
+            font-size: 14px;
+        }
+        #bnt_pagar{
+            padding: 10px 20px;
+            color: aliceblue;
+            background-color: darkgreen;
+            border: 0px;
+            border-radius: 10px;
+        }
+
+    </style>
+</head>
+<body>
+    <a href="chave_pix.html">
+        <header>
+            <img src="img/back.png" alt="">
+            <h1>Novo pagamento</h1>
+        </header>
+    </a>
+
+    <main>
+        <div id="conteiner">
+            <img src="img/avatar_95px.png" alt="">
+            <section id="infos">
+                <p id="nome"><strong>ANA ANDREIA JERUSALENO CALABIANQUI</strong></p>
+                <p id="cpf">***.986.987-**</p>
+                <p id="banco">BANCO DA PESSOA</p>
+                <span style="display: flex; align-items: flex-end;">
+                    <p style="margin-right: 5px;font-weight: bold;">R$ </p>
+                    <input type="number" name="valor" id="valor" placeholder="0,00">
+                </span>
+                <img src="img/new_pay_parcelar_69x300px.png" alt="">
+            </section>
+        </div>
+        <hr>
+        <div>
+            <section class="lado_">
+                <p>Pagar hoje</p>
+                <p><strong>data</strong></p>
+            </section>
+            <section class="lado_">
+                <p>Agendar</p>
+                <p><a href=""><strong>Escolher data</strong></a></p>
+            </section>
+        </div>
+        <hr>
+        <p id="hint">Descrição (opcional)</p>
+        <hr>
+
+    </main>
+
+    <footer>
+        <hr>
+        <div id="public">
+            <img id="img_public" src="img/new_pay_publico_22x28px.png" alt="">
+            <p>Público</p>
+            <img id="img_seta"src="img/new_pay_seta_botton_22px.png" alt="">
+        </div>
+
+        <hr>
+
+        <div id="saldo">
+            <div>
+                <img src="img/new_pay_saldo_37px.png" alt="">
+                <section>
+                    <p>Forma de pagamento:</p>
+                    <a href="">Saldo: null</a>
+                </section>
+            </div>
+            <button id="bnt_pagar">Pagar</button>
+        </div>
+
+        <hr>
+
+    </footer>
+</body>
+</html>

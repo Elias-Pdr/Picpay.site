@@ -64,7 +64,7 @@
             margin: 20px 5px 35px 0px;
 
             border-radius: 10px;
-            border: 1px solid rgba(128, 128, 128, 0.719);
+            border: 0.14vw solid rgba(128, 128, 128, 0.719);
             background-color: #016533;
             background-repeat: no-repeat;
             background-size: cover;
@@ -109,8 +109,9 @@
         }
 
         #recentes hr{
-            height: 1px;
+            height: 0.26vw;
             background-color:rgb(0, 202, 10);
+            border: 0px;
         }
         .pessoas{
             display: flex;
@@ -151,7 +152,7 @@
         <p id="dica_input"></p>
         <input onclick="chave('celular')" type="tel" name="input_new" id="input_new">
         <input onclick="chave('cpf')" type="tel" name="input" id="input" placeholder="Número do CPF/CNPJ">
-        <button id="avançar"  > Avançar</button>
+        <button onclick="avan()" id="avançar"  > Avançar</button>
         <div id="recentes">
             <section>
                 <h1>Recentes</h1>
@@ -192,6 +193,10 @@
     </main>
 
     <script>
+        function avan() {
+            window.location.href = 'novo_pagamento.html'
+
+        }
 
         const bnt_cpf = document.getElementById('cpf')
         const bnt_celular = document.getElementById('celular')
@@ -274,7 +279,7 @@
                 input_new.addEventListener('keypress', () => {
                     let inputLength = input_new.value.length
 
-                    if (inputLength >= 13 || input_new.value.search('@') != -1) {
+                    if (inputLength >= 13 || input_new.value.search('@') != -1|| input_new.value.search('.') != -1) {
                         avançar.style.color = 'aliceblue'
                         avançar.style.backgroundColor = '#016533'                    
                     }else{
