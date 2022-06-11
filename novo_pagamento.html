@@ -154,7 +154,8 @@
         footer{
             position: fixed;
             width: 99vw;
-            bottom: 54.58vw;
+            bottom: 5px;
+            margin-bottom: 0vw;
         }
 
 
@@ -224,7 +225,7 @@
                 <p id="banco">BANCO DA PESSOA</p>
                 <span id="moeda">
                     <p id="rs">R$ </p>
-                    <input type="text" name="valor" id="valor" placeholder="0,00">
+                    <input onfocusout="input_focus('n')" onfocus="input_focus('s')" type="text" name="valor" id="valor" placeholder="0,00">
                 </span>
                 <img src="img/new_pay_parcelar_69x300px.png" alt="">
             </section>
@@ -252,7 +253,7 @@
 
     </main>
 
-    <footer>
+    <footer id="_footer">
         <hr>
         <div id="public">
             <img id="img_public" src="img/new_pay_publico_22x28px.png" alt="">
@@ -279,6 +280,7 @@
     
 
     <script>
+        const _footer = document.getElementById('_footer')
         const preço_txt = document.getElementById('valor')
 
         const nome_txt = document.getElementById('nome')
@@ -296,9 +298,7 @@
         }
 
         const banco_saldo = document.getElementById('saldo')
-
         let static_dinheiro = parseFloat(localStorage.getItem("dinheiro"))
-
         const formatter = new Intl.NumberFormat("pt-br", {
             style: "currency",
             currency: "BRL",
@@ -306,12 +306,8 @@
         })
 
         banco_saldo.innerHTML = 'Saldo: ' + formatter.format(static_dinheiro)
-
-
         const data_txt = document.getElementById('data')
-
         let data = new Date()
-
         let minuto = data.getMinutes()
         let hora = data.getHours()
         let dia = data.getDate()
@@ -321,6 +317,15 @@
         localStorage.setItem("hora_do_pagamento", hora + ':' + minuto)
 
         preço_txt.focus()
+
+        function input_focus(f){
+            console.log(f);
+            if(f == 's'){
+                 _footer.style.marginBottom = '54.58vw'
+            }else if(f == 'n'){
+                _footer.style.marginBottom = '0vw'
+            }
+        }
 
         function pagar() {
             localStorage.setItem("preço",preço_txt.value)
