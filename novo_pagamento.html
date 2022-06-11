@@ -120,13 +120,14 @@
             align-items: center;
         }
         hr{
-            background-color: rgba(112, 112, 112, 0.432);
-            height: 0.13vw;
+            background-color: rgba(112, 112, 112, 0.295);
+            height: 0.20vw;
             border: 0px;
         }
         #hint{
-            margin: 20px 15px;
-            color: rgba(82, 82, 82, 0.699);
+            margin: 25px 15px;
+            color: rgba(112, 112, 112, 0.568);
+
 
         }
         #public{
@@ -208,7 +209,7 @@
         }
     </style>
 </head>
-<body>
+<body onload=" foco()">
     <a href="chave_pix.html">
         <header>
             <img src="img/back.png" alt="">
@@ -316,7 +317,10 @@
 
         localStorage.setItem("hora_do_pagamento", hora + ':' + minuto)
 
-        preço_txt.focus()
+        function foco() {
+            document.getElementById('valor').focus()
+
+        }
 
         function input_focus(f){
             console.log(f);
