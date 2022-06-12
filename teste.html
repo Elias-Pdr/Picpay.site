@@ -1,51 +1,31 @@
-<!doctype html>
-<html lang="pt-br">
-	<head>
-		<title>Alterar imagem - SatellaSoft</title>
-		<meta charset="utf-8">
-		<style type="text/css">
-			*{margin: 0 auto; padding:0;}
-			
-			body{
-				background-color:#111;
-			}
-			input{
-				padding: 20px;
-				width: 100%;
-				font-size: 28px;
-			}
-
-		</style>
-
-
-	</head>
-	<body>
-
-		<input type="text" name="text" id="text">
-
-		<script type="text/javascript">
-			
-			console.log("37356542000101".replace(/^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})/, "$1.$2.$3/$4-$5"))
-			console.log("21818863774".replace(/^(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4"))
-
-			const input_txt = document.getElementById('text')
-
-			input_txt.addEventListener('keypress', () => {
-				let inputLength = input_txt.value.length
-
-				if(inputLength === 3 || inputLength === 7){
-					input_txt.value += '.'
-				}else if (inputLength === 11) {
-					input_txt.value += '-'
-				}
-				//37.356.542/0001-01
-				else if(inputLength > 13){
-					//input_txt.value = (input_txt.value.replace(/^(\d{3})(\d{3})(\d{3})(\d{2})/, "$1.$2.$3-$4"))
-
-				}
-			})
-
-        </script>
-
-	</body>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" 
+          content="width=device-width,
+                   initial-scale=1.0" />
+    <title>Document</title>
+  
+    <style>
+      /*media query to detect orientation change*/
+      @media screen and (orientation: landscape) {
+        h1 {
+          color: green;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="text">Change orientation/screen height</h1>
+  
+    <script>
+      const text = document.querySelector("#text");
+  
+// resize event listener to detect change in screen height
+      window.addEventListener("resize", (e) => {
+        text.innerHTML = "Virtual keyboard detected!!!";
+      });
+    </script>
+  </body>
 </html>

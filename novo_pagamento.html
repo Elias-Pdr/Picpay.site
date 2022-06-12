@@ -23,6 +23,7 @@
             margin: auto;
 
         }
+
         header{
             display: flex;
             align-items: center;
@@ -207,9 +208,13 @@
             font-weight: 900;
 
         }
+
+
+
     </style>
 </head>
 <body onload=" foco()">
+
     <a href="chave_pix.html">
         <header>
             <img src="img/back.png" alt="">
@@ -226,7 +231,7 @@
                 <p id="banco">BANCO DA PESSOA</p>
                 <span id="moeda">
                     <p id="rs">R$ </p>
-                    <input onfocus="input_focus('s')" type="tel" name="valor" id="valor" placeholder="30,00">
+                    <input onkeyup="formatarMoeda()" onfocus="input_focus('s')" type="tel" name="valor" id="valor" placeholder="30,00">
                 </span>
                 <img src="img/new_pay_parcelar_69x300px.png" alt="">
             </section>
@@ -281,8 +286,10 @@
     
 
     <script>
+
         const _footer = document.getElementById('_footer')
         const preço_txt = document.getElementById('valor')
+        const rs = document.getElementById('rs')
 
         const nome_txt = document.getElementById('nome')
         nome_txt.innerHTML = localStorage.getItem("nome").toUpperCase()
@@ -317,19 +324,44 @@
 
         localStorage.setItem("hora_do_pagamento", hora + ':' + minuto)
 
+        
+
+
+        function formatarMoeda() {
+                rs.style.color = 'rgb(2, 119, 58)1'
+
+				var valor = preço_txt.value;
+		
+				valor = valor + '';
+				valor = parseInt(valor.replace(/[\D]+/g, ''));
+				valor = valor + '';
+				valor = valor.replace(/([0-9]{2})$/g, ",$1");
+		
+				if (valor.length > 6) {
+					valor = valor.replace(/([0-9]{3}),([0-9]{2}$)/g, ".$1,$2");
+				}
+		
+				preço_txt.value = valor;
+				if(valor == 'NaN') preço_txt.value = '';
+			}
+
         function foco() {
             document.getElementById('valor').focus()
 
         }
 
-        function input_focus(f){
-            console.log(f);
-            if(f == 's'){
-                 _footer.style.marginBottom = '64.02vw'
-            }else if(f == 'n'){
+        let contador = 0
+        window.addEventListener("resize", (e) => {
+            if(contador == 1){
                 _footer.style.marginBottom = '0vw'
+                contador = 0
+            }else{
+                _footer.style.marginBottom = '64.02vw'
+                contador++
             }
-        }
+        });
+
+
 
         function pagar() {
             localStorage.setItem("preço",preço_txt.value)
