@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+        <style>
+            @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700;800;900&display=swap');
+            :root{
+                --largura: 100vw;
+            }
+            *{
+                margin: 0%;
+                padding: 0%;
+            }
+            
+            body, html{
+                background-color: #ffffff;
+                width: var(--largura);
+                font-family: 'Nunito Sans', sans-serif;
+                font-size: 1em;
+            }
+            header{
+            display: flex;
+            align-items: center;
+            width:  100vw;
+            height: 10.22vw;
+        }
+            header img{
+            margin: 10px;
+            width: 4.16vw;
+            height: 4.16vw;
+            background-size: cover;
+        }
+        main{
+            text-align: center;
+        }
+        #pix_grande{
+            width: 14.58vw;
+            height: 14.58vw;
+            margin: 10px;
+        }
+        .negrito{
+            font-weight: bold;
+        }
+        h1{
+            font-size: 30px;
+            margin-bottom: 8px;
+        }
+        #nome{
+            font-size: 16px;
+            margin-bottom: 3px;
+        }
+        #data{
+            margin-bottom: 30px;
+        }
+        </style>
+</head>
+<body>
+    <header>
+        <img src="img/back.png" alt="">
+    </header>
+
+    <main>
+
+        <img id="pix_grande" src="img/pix/pix_grande_105px.png" alt="">
+        <h1 class="negrito">Pix enviado</h1>
+        <p class="negrito" id="nome">NOME COMPLETO DA PESSOA</p>
+        <p id="data">Data</p>
+        <hr>
+        <p>Valor transferido</p>
+        <p class="negrito">R$ Valor</p>
+        <hr>
+        <button>
+            <img src="img/pix/pix_minusculo_40px.png" alt="">
+            <p>Comprovante de Pix</p>
+        </button>
+        <hr>
+        <p class="negrito">Forma de pagamento</p>
+        <img src="img/new_pay_seta_botton_22px.png" alt="">
+        <p class="negrito">Saldo:</p>
+        <p>R$ valor</p>
+    
+    </main>
+
+    <script>
+        const nome_txt = document.getElementById('nome')
+        nome_txt.innerHTML = localStorage.getItem('nome').toUpperCase()
+
+        const data_txt = document.getElementById('data')
+        let data = new Date()
+        
+        let dia = data.getDate()
+        let mês = (data.getUTCMonth() + 1).toString()
+        let ano = data.getFullYear()
+
+        if(dia < 10){
+            dia = "0" + dia
+        }
+
+        switch(mês){
+            case '1':
+                mês = 'jan'
+                break;
+            case '2':
+                mês = 'fev'
+                break
+            case '3':
+                mês = 'mac'
+                break;
+            case '4':
+                mês = 'abr'
+                break
+            case '5':
+                mês = 'mai'
+                break;
+            case '6':
+                mês = 'jun'
+                break
+            case '7':
+                mês = 'jul'
+                break;
+            case '8':
+                mês = 'ago'
+                break
+            case '9':
+                mês = 'set'
+                break;
+            case '10':
+                mês = 'out'
+                break
+            case '11':
+                mês = 'nov'
+                break;
+            case '12':
+                mês = 'dez'
+                break
+
+        }
+
+        data_txt.innerHTML =  dia + " " + mês + " " + ano
+
+    </script>
+</body>
+</html>
