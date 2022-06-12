@@ -121,7 +121,7 @@
         <p style="margin: 30px 0px 8px 0px;">Valor transferido</p>
         <p class="negrito" id="valor">R$ Valor</p>
         <hr>
-        <button>
+        <button onclick="window.location.href = 'comprovante.html'">
             <img src="img/pix/pix_minusculo_40px.png" alt="">
             <p>Comprovante do Pix</p>
         </button>
@@ -235,7 +235,6 @@
         }
 
         data_txt.innerHTML =  dia + " " + mês + " " + ano + ' ' + localStorage.getItem('hora_do_pagamento') + ':' + segundos
-
     </script>
 </body>
 </html>

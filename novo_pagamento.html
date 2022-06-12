@@ -439,8 +439,15 @@
         if(mês <10){
             mês = '0'+ mês
         }
+        if(dia <10){
+            dia = '0'+ dia
+        }
         data = dia +'/'+ mês +'/'+ ano
-
+        localStorage.setItem("data_do_pagamento", data)
+        localStorage.setItem("dia_do_pagamento", dia)
+        localStorage.setItem("mês_do_pagamento", mês)
+        localStorage.setItem("ano_do_pagamento", ano)
+        
         data_txt.innerHTML = data
         
         

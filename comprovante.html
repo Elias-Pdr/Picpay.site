@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700;800;900&display=swap');
+        :root{
+            --largura: 100vw;
+        }
+        *{
+            margin: 0%;
+            padding: 0%;
+        }
+            
+        body, html{
+            background-color: #ffffff;
+            width: var(--largura);
+            font-family: 'Nunito Sans', sans-serif;
+            font-size: 1em;
+        }
+        header{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width:  100vw;
+            background-color: #f1f7fa;
+        }
+        header img{
+            margin: 10px;
+            width: 5.55vw;
+            height: 5.55vw;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+
+        }
+        header div{
+            display: flex;
+            align-items: center;
+            margin: 5px 10px;
+        }
+        a> img{
+            margin: 10px;
+            width: 4.16vw;
+            height: 4.16vw;
+            background-size: cover;
+        }
+        header h1{
+            margin-left: 20px;
+            font-size: 26px;
+        }
+        #sub_header p{
+            font-size: 14px;
+        }
+
+        #sub_header, main, #sub_main{
+            margin: 0px 16px;
+        }
+
+        #sub_header hr, main hr, {
+            background-color: #00000041;
+            height: 0.20vw;
+            border: 0px;
+            width: 96%;
+            margin: auto;
+        }
+
+        .strong{
+            font-weight: bold;
+        }
+        main{
+            font-size: 14px;
+        }
+
+        main{
+            font-size: 14px;
+        }
+        .letra_maior{
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        #inclinado{
+            font-style: italic;
+        }
+        footer{
+            background-color: #f1f7fa;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div>
+            <a href="extrato.html"><img src="img/back.png" alt=""></a>
+            <h1>Recibo</h1>
+        </div>
+        <div>
+            <img src="img/pix/recibo_share_40px.png" alt="">
+            <img src="img/pix/recibo_baixar_40px.png" alt="">
+        </div>
+    </header>
+    <hr>
+    <div id="sub_header">
+        <img src="img/pix/pix_pequeno_77px.png" alt="">
+        <h2 class="letra_maior">Pagamento via Pix</h2>
+        <p id="num_transição">Transação: numero aleatório</p>
+        <p id="horaEdata">dia e hora</p>
+        <hr>
+    </div>
+    
+    <main>
+        <p class="strong">Destinatário</p>
+        <p id="nome">NOME COMPLETO DA PESSOA</p>
+        <p id="cpf">CPF: cpf da pessoa</p>
+        <p id="banco">Instituição: BANCO DA PESSOA</p>
+        <p class="strong">Origem</p>
+        <p>Pedro Elias Jerusaleno Calabianqui</p>
+        <p>CPF: ***.188.957-**</p>
+        <p>Instituição: PICPAY SERVICOS S.A.</p>
+        <hr>
+        <p class="strong">Id Pix</p>
+        <p id="id">numero aleatório</p>
+        <hr>
+        <p>Pagamento</p>
+        <p class="strong">Saldo</p>
+        <p>Total pago</p>
+        <p class="strong" id="preço">R$ valor</p>
+    </main>
+
+    <div id="sub_main">
+        <hr>
+        <p class="letra_maior">Valor</p>
+        <p class="letra_maior" id="preço2">R$ valor</p>
+    </div>
+    <hr>
+    <footer>
+        <p id="inclinado" class="strong">Central de Ajuda</p>
+        <img src="img/pix/recibo_marca_dagua_40px120px.png" alt="">
+        <p>CNPJ 22.896.431/0001-10</p>
+    </footer>
+
+    <script>
+        let num_transição = document.getElementById('num_transição')
+        num_transição.innerHTML = 'Transação: ' + 797516374
+
+
+        let horaEdata = document.getElementById('horaEdata')
+        let data = new Date()
+        let segundos = data.getSeconds()
+        let dia = data.getDate()
+        let mês = (data.getUTCMonth() + 1).toString()
+        let ano = data.getFullYear()
+        if(mês < 10){
+            mês = "0" + mês
+        }
+        if(dia < 10){
+            dia = "0" + dia
+        }
+        if(segundos < 10){
+            segundos = "0" + segundos
+        }
+        horaEdata.innerHTML = localStorage.getItem('data_do_pagamento') + ' às '+ localStorage.getItem('hora_do_pagamento') + ':' + segundos
+    
+        let nome = document.getElementById('nome')
+        nome.innerHTML = localStorage.getItem('nome')
+    
+        let cpf = document.getElementById('cpf')
+        cpf.innerHTML = 'CPF: ***.' + localStorage.getItem('cpf') + '-**'
+
+        let banco = document.getElementById('banco')
+        banco.innerHTML = 'Instituição: ' + localStorage.getItem('banco').toUpperCase()
+
+
+        let id = document.getElementById('id')
+        id.innerHTML = 'E22823637483389258357v7589x0v72a'
+
+        let preço = document.getElementById('preço')
+        preço.innerHTML = 'R$ ' + localStorage.getItem('preço')
+
+        let preço2 = document.getElementById('preço2')
+        preço2.innerHTML = 'R$ ' + localStorage.getItem('preço')
+
+    </script>
+</body>
+</html>
