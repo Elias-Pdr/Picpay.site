@@ -47,6 +47,7 @@
         h1{
             font-size: 30px;
             margin-bottom: 8px;
+            
         }
         #nome{
             font-size: 16px;
@@ -55,11 +56,59 @@
         #data{
             margin-bottom: 30px;
         }
+        hr{
+            background-color: #00000041;
+            height: 0.20vw;
+            border: 0px;
+            width: 96%;
+            margin: auto;
+        }
+        #valor{
+            margin: 0px 0px 20px 0px;
+            font-size: 30px;
+            font-weight: 800;
+
+        }
+        button{
+            display: flex;
+            align-items: center;
+            width: 94%;
+            margin: 24px auto;
+
+            border: 0px;
+            border-radius: 6px;
+            box-shadow: 0px 3px 6px 1px #00000041;
+            padding: 10px 0px;
+            background-color: #ffffff;
+        }
+        button img{
+            width: 5.55vw;
+            height: 5.55vw;
+            margin: 0px 10px;
+        }
+        #menu{
+            width: 94%;
+            margin: 24px auto;
+            border: 1px solid #00000041;
+            border-radius: 10px;
+            
+        }
+        #menu section{
+            display: flex;
+            justify-content: space-between;
+        }
+        #menu div{
+            margin: 15px 10px;
+        }
+        #menu p{
+            text-align: left;
+
+        }
         </style>
 </head>
 <body>
     <header>
-        <img src="img/back.png" alt="">
+        <a href="extrato.html"><img src="img/back.png" alt=""></a>
     </header>
 
     <main>
@@ -69,34 +118,80 @@
         <p class="negrito" id="nome">NOME COMPLETO DA PESSOA</p>
         <p id="data">Data</p>
         <hr>
-        <p>Valor transferido</p>
-        <p class="negrito">R$ Valor</p>
+        <p style="margin: 30px 0px 8px 0px;">Valor transferido</p>
+        <p class="negrito" id="valor">R$ Valor</p>
         <hr>
         <button>
             <img src="img/pix/pix_minusculo_40px.png" alt="">
-            <p>Comprovante de Pix</p>
+            <p>Comprovante do Pix</p>
         </button>
         <hr>
-        <p class="negrito">Forma de pagamento</p>
-        <img src="img/new_pay_seta_botton_22px.png" alt="">
-        <p class="negrito">Saldo:</p>
-        <p>R$ valor</p>
+                
+
+
+
+        <div id="menu" onclick="menu_click()">
+            <div>
+                <section>
+                    <p class="negrito">Forma de pagamento</p>
+                    <img id="seta" src="img/new_pay_seta_botton_22px.png" alt="">
+                </section>
+                <span id="obj_gone">
+                    <p class="negrito" style="margin-top: 40px;">Saldo:</p>
+                    <p id="valor2">R$ valor</p>
+                </span>
+            </div>
+        </div>
     
     </main>
 
     <script>
+        const seta = document.getElementById('seta')
+
+        const obj_gone = document.getElementById('obj_gone')
+        obj_gone.style.display = 'none'
+
         const nome_txt = document.getElementById('nome')
         nome_txt.innerHTML = localStorage.getItem('nome').toUpperCase()
 
+        const valor_txt = document.getElementById('valor')
+        valor_txt.innerHTML = "R$ " + localStorage.getItem("preço")
+
+        const valor2_txt = document.getElementById('valor2')
+        valor2_txt.innerHTML = "R$ " + localStorage.getItem("preço")
+
+
         const data_txt = document.getElementById('data')
+
         let data = new Date()
-        
+
+        let segundos = data.getSeconds()
         let dia = data.getDate()
         let mês = (data.getUTCMonth() + 1).toString()
         let ano = data.getFullYear()
 
+        function menu_click(){
+            console.log('menu');
+            if(obj_gone.style.display == 'none'){
+                obj_gone.style.display = 'block'
+
+                var graus = 180
+                seta.style.transform = 'rotate(' + graus + 'deg)';
+
+            }else{
+                obj_gone.style.display = 'none'
+                var graus = 0
+                seta.style.transform = 'rotate(' + graus + 'deg)';
+
+            }
+            
+        }
+
         if(dia < 10){
             dia = "0" + dia
+        }
+        if(segundos < 10){
+            segundos = "0" + segundos
         }
 
         switch(mês){
@@ -139,7 +234,7 @@
 
         }
 
-        data_txt.innerHTML =  dia + " " + mês + " " + ano
+        data_txt.innerHTML =  dia + " " + mês + " " + ano + ' ' + localStorage.getItem('hora_do_pagamento') + ':' + segundos
 
     </script>
 </body>
