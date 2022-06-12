@@ -278,14 +278,16 @@
         hora.innerHTML = localStorage.getItem("hora_do_pagamento")
 
         const debito = document.getElementById('preço')
-        debito.innerHTML = "-" + localStorage.getItem("preço")
+        debito.innerHTML = "-R$ " + localStorage.getItem("preço")
 
         const nome_txt = document.getElementById('nome')
         nome_txt.innerHTML = localStorage.getItem("nome").toUpperCase()
 
         const banco_txt = document.getElementById('banco')
         banco_txt.innerHTML = 'Instituição: ' + localStorage.getItem("banco").toUpperCase()
-        
+       
+ 
+
         const data_txt = document.getElementById('data')
         let data = new Date()
         

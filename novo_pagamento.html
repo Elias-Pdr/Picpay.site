@@ -14,16 +14,17 @@
             margin: 0%;
             padding: 0%;
         }
-
-        body{
+        
+        body, html{
             background-color: #ffffff;
             width: var(--largura);
             font-family: 'Nunito Sans', sans-serif;
             font-size: 1em;
             margin: auto;
-
         }
-
+        main{
+            margin-top: 20px;
+        }
         header{
             display: flex;
             align-items: center;
@@ -31,6 +32,18 @@
             height: 10.22vw;
             margin: 10px 0px;
         }
+
+        #up{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: fixed;
+            top: 0;
+            background-color: rgba(0, 0, 0, 0.884);
+            width: 100vw;
+            height: 100vh;
+        }
+
         header img{
             margin: 10px;
             width: 4.16vw;
@@ -59,12 +72,6 @@
         #infos{
             width: 100%;
         }
-        
-
-
-
-
-
         #infos>img{
             display: block;
             width: 41.66vw;
@@ -73,8 +80,6 @@
             border-radius: 30px;
             margin: 13px 0px;
         }
-
-
         #rs{
             font-size: 24px;
             font-weight: bold;
@@ -97,8 +102,6 @@
             outline: none;
 
         }
-
-
         .lado_{
             display: flex;
             justify-content: space-between;
@@ -146,23 +149,16 @@
             height: 3.05vw;
 
         }
-
         #public>#img_public, #img_seta, p{
             margin: 0px 10px;
         }
 
-
-
         footer{
             position: fixed;
-            width: 99vw;
+            width: 100%;
             bottom: 5px;
             margin-bottom: 0vw;
         }
-
-
-
-
         #saldo_container{
             display: flex;
             justify-content: space-between;
@@ -208,12 +204,55 @@
             font-weight: 900;
 
         }
+        #container_senha{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            background-color: aliceblue;
+            width: 90%;
+            height: 54.86vw;
+            margin: auto;
+            border-radius: 15px;
 
+        }
+        #container_senha p{
+            font-weight: bolder;
+            font-size: 22px;
+            margin: 10px;
+        }
+        #container_senha input{
+            color: rgb(0, 0, 0);
 
-
+            font-weight: normal;
+            font-size: 20px;
+            text-align: center;
+            width: 80%;
+            border: 0px;
+            border-bottom: 2px solid rgb(0 145 71);
+            margin: 10px;
+        }
+        #container_senha button{
+            font-weight: 550;
+            font-size: 20px;
+            text-align: center;
+            width: 80%;
+            border: 0px;
+            margin: 10px;
+            padding: 15px;
+            border-radius: 15px;
+        }
+        #Finalizar{
+            background-color: rgb(0 145 71);
+            color: aliceblue;
+        }
+        #Cancelar{
+            background-color: rgba(167, 167, 167, 0.411);
+        }
     </style>
 </head>
 <body onload=" foco()">
+
 
     <a href="chave_pix.html">
         <header>
@@ -222,7 +261,19 @@
         </header>
     </a>
 
+    <div id="up">
+        <div id="container_senha">
+            <p>Digite sua senha</p>
+            <input type="password" name="password" id="password" placeholder="Sua senha">
+            <button id="Finalizar">Finalizar</button>
+            <button id="Cancelar">Cancelar</button>
+            
+        </div>
+    </div>
+    
+
     <main>
+        
         <div id="conteiner">
             <img src="img/avatar_95px.png" alt="">
             <section id="infos">
@@ -231,7 +282,7 @@
                 <p id="banco">BANCO DA PESSOA</p>
                 <span id="moeda">
                     <p id="rs">R$ </p>
-                    <input onkeyup="formatarMoeda()" onfocus="input_focus('s')" type="tel" name="valor" id="valor" placeholder="30,00">
+                    <input onkeyup="formatarMoeda()" type="tel" name="valor" id="valor" placeholder="40,00">
                 </span>
                 <img src="img/new_pay_parcelar_69x300px.png" alt="">
             </section>
@@ -282,10 +333,16 @@
 
 
     </footer>
+        
+
+    
 
     
 
     <script>
+
+        const shadow = document.getElementById('up')
+        shadow.style.display = "none"
 
         const _footer = document.getElementById('_footer')
         const preço_txt = document.getElementById('valor')
@@ -321,6 +378,10 @@
         let dia = data.getDate()
         let mês = (data.getUTCMonth() + 1).toString()
         let ano = data.getFullYear()
+
+        if(hora <10){
+            hora = '0'+ hora
+        }
 
         localStorage.setItem("hora_do_pagamento", hora + ':' + minuto)
 
@@ -364,6 +425,8 @@
 
 
         function pagar() {
+            shadow.style.display = "flex"
+            _footer.style.display = 'none'
             localStorage.setItem("preço",preço_txt.value)
             console.log(localStorage.getItem("preço"));
             localStorage.setItem("dinheiro",parseFloat(localStorage.getItem("dinheiro")) - parseFloat(preço_txt.value) )
