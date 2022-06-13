@@ -16,7 +16,7 @@
         }
             
         body, html{
-            background-color: #ffffff;
+            background-color: #f1f7fa;
             width: var(--largura);
             font-family: 'Nunito Sans', sans-serif;
             font-size: 1em;
@@ -63,6 +63,7 @@
         #sub_header, main, #sub_main{
             width: 90%;
             margin: auto;
+            
         }
 
         #sub_header hr, main hr, #sub_main hr{
@@ -134,9 +135,6 @@
             background-size: cover;
 
         }
-        #footer_hr{
-            margin: 15px 0px 0px 0px;
-        }
         .hr_com_margem{
             margin: 15px 0px;
         }
@@ -146,6 +144,12 @@
         ._lado{
             display: flex;
             justify-content: space-between;
+            background-color: rgb(255, 255, 255);
+
+        }
+        #branco{
+            background-color: rgb(255, 255, 255);
+            padding-bottom: 15px;
         }
     </style>
 </head>
@@ -162,51 +166,48 @@
         </div>
     </header>
     
-    <hr id="hr_do_header">
-
-    <div id="sub_header">
-        <span><img src="img/pix/pix_pequeno_77px.png" alt=""></span>
-        <span>
-            <h2 class="letra_maior">Pagamento via Pix</h2>
-            <p id="num_transição">Transação: numero aleatório</p>
-            <p id="horaEdata">dia e hora</p>
-        </span>
-    </div>
-    <hr id="hr_especial">
-
-
-    <main>
-        <p class="strong espaçamento">Destinatário</p>
-        <p id="nome">NOME COMPLETO DA PESSOA</p>
-        <p id="cpf">CPF: cpf da pessoa</p>
-        <p id="banco">Instituição: BANCO DA PESSOA</p>
-        <p style="margin-top: 20px;" class="strong espaçamento">Origem</p>
-        <p>Pedro Elias Jerusaleno Calabianqui</p>
-        <p>CPF: ***.188.957-**</p>
-        <p>Instituição: PICPAY SERVICOS S.A.</p>
-        <hr class="hr_com_margem">
-        <p class="strong espaçamento">Id Pix</p>
-        <p id="id">numero aleatório</p>
-        <hr class="hr_com_margem">
-
-        <span class="_lado">
-            <p>Pagamento</p>
-            <p class="strong">Saldo</p>
-        </span>
-
-        <span class="_lado">
-            <p>Total pago</p>
-            <p class="strong" id="preço">R$ valor</p>
-        </span>
+    <div id="branco">
+        <hr id="hr_do_header">
+        <div id="sub_header">
+            <span><img src="img/pix/pix_pequeno_77px.png" alt=""></span>
+            <span>
+                <h2 class="letra_maior">Pagamento via Pix</h2>
+                <p id="num_transição">Transação: numero aleatório</p>
+                <p id="horaEdata">dia e hora</p>
+            </span>
+        </div>
+        <hr id="hr_especial">
+        <main>
+            <p class="strong espaçamento">Destinatário</p>
+            <p id="nome">NOME COMPLETO DA PESSOA</p>
+            <p id="cpf">CPF: cpf da pessoa</p>
+            <p id="banco">Instituição: BANCO DA PESSOA</p>
+            <p style="margin-top: 20px;" class="strong espaçamento">Origem</p>
+            <p>Pedro Elias Jerusaleno Calabianqui</p>
+            <p>CPF: ***.188.957-**</p>
+            <p>Instituição: PICPAY SERVICOS S.A.</p>
+            <hr class="hr_com_margem">
+            <p class="strong espaçamento">Id Pix</p>
+            <p id="id">numero aleatório</p>
+            <hr class="hr_com_margem">
+            <span class="_lado">
+                <p>Pagamento</p>
+                <p class="strong">Saldo</p>
+            </span>
+            <span class="_lado">
+                <p>Total pago</p>
+                <p class="strong" id="preço">R$ valor</p>
+            </span>
         
-    </main>
+        </main>
+        <div id="sub_main">
+            <hr class="hr_com_margem">
+            <span class="_lado">
+                <p class="letra_maior">Valor</p>
+                <p class="letra_maior" id="preço2">R$ valor</p>
 
-    <div id="sub_main">
-        <hr class="hr_com_margem">
-        <span class="_lado">
-            <p class="letra_maior">Valor</p>
-            <p class="letra_maior" id="preço2">R$ valor</p>
-        </span>
+            </span>
+        </div>
     </div>
 
     <hr id="footer_hr">
